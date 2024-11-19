@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login - Ecoplan</title>
+        <link rel="stylesheet" href="src/css/estilos.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+            <!-- Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+<body>
+    <div class="logo-container"></div> <!-- Contenedor para la imagen predominante -->
+
+   
+    <div class="login-container">
+        <img class="logo" src="src/image/logo.png" alt="Logo">
+        <h2>Restablecer Contraseña</h2>
+        
+        <div class="input-group">
+            <!-- Contraseña -->
+            <div class="password-container">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
+            </div>
+    
+            <!-- Confirmar Contraseña -->
+            <div class="password-container">
+                <label for="confirmar_contrasena">Confirmar Contraseña</label>
+                <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" placeholder="Confirmar Contraseña" required>
+            </div>
+    
+            <!-- Mostrar contraseña -->
+            <div class="show-password">
+                <input type="checkbox" id="showPasswordCheckbox">
+                <label for="showPasswordCheckbox"> Mostrar Contraseña</label>
+            </div>
+            
+    
+            <button type="button" class="button" onclick="cambiarContrasena()">Restablecer</button>
+        </div>
+    
+        <div>
+            <a class="enlaces" href="../../../../login.html">Inicio Sesión</a>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    <script src="src/js/cambiarContrasena.js"></script>
+    <script src="src/js/globalComponet.js"></script>
+
+</body>
+</html>

@@ -1,3 +1,4 @@
+/* Estilos generales */
 body {
     font-family: montserrat, sans-serif;
     margin: 0;
@@ -7,7 +8,6 @@ body {
 
 .logo {
     width: 500px; /* Aumenta el tamaño del logo */
-
     height: auto; /* Mantiene la proporción original de la imagen */
     margin-bottom: 10px; /* Ajusta el margen inferior */
     display: block; /* Asegura que sea un bloque independiente */
@@ -15,21 +15,18 @@ body {
     margin-right: auto;
 }
 
-
 .logo-container {
     flex: 2; /* Ocupa más espacio */
     display: flex;
-    
     justify-content: center;
     align-items: center;
-    background-image: url('../image/planeta1.jpg'); 
+    background-image: url('../image/planeta1.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .login-container {
-    
     flex: 1; /* Ocupa menos espacio */
     display: flex;
     flex-direction: column;
@@ -60,8 +57,58 @@ body {
     margin-bottom: 15px;
 }
 
+.password-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.password-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+
+/* Asegura que el checkbox y el texto estén en una misma línea */
+
+
+/* Espacio entre el checkbox y el texto */
+/* Ajusta el espacio entre el checkbox y el texto y mueve el checkbox hacia abajo */
+.show-password input[type="checkbox"] {
+    margin-right: -5px; /* Ajusta el espacio entre el checkbox y el texto (más cerca del texto) */
+    width: 20px; /* Establece un tamaño adecuado para el checkbox */
+    margin-top: 5px; /* Mueve el checkbox más abajo, puedes ajustar este valor según el espacio deseado */
+}
+
+
+/* Ajuste para el tamaño del checkbox si es necesario */
+.show-password input[type="checkbox"] {
+    transform: scale(1.2); /* Aumenta el tamaño del checkbox */
+}
+
+
+
+.password-container i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+    color: #999;
+}
+
+.password-container i:hover {
+    color: #14432F;
+}
+
+/* Estilos para el botón */
 .button {
     width: 100%;
+    max-width: 400px; /* Esto asegura que el botón no se expanda demasiado */
     font-size: 18px;
     font-weight: 600;
     background-color: #14432F;
@@ -70,6 +117,7 @@ body {
     border-radius: 8px;
     padding: 10px;
     cursor: pointer;
+    margin-top: 10px; /* Añade algo de espacio arriba del botón */
 }
 
 .button:hover {
@@ -80,7 +128,6 @@ body {
     display: inline-block;
     margin: 10px;
     font-weight: bold; /* Esto hace que el texto esté en negrita */
-
     font-size: 14px;
     text-decoration: none;
     color: #2f53b7;
@@ -89,7 +136,6 @@ body {
 .enlaces:hover {
     text-decoration: underline;
 }
-
 
 .error-message {
     color: red;

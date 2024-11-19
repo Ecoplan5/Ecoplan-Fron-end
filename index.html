@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Bienvenido</h1>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil de Usuario</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      
+    />
+    <link rel="stylesheet" href="src/css/stylosHome.css">
+  
+  </head>
+  <body>
+    <div class="header">
+      <div class="avatar-container" onclick="toggleDropdown()">
+        <div class="avatar-container">
+            <div class="circle">
+              <img src="../image/planeta1.jpg" >
+            </div>
+          </div>
+          
+        <div class="username" id="username">Feliciano M</div>
+      </div>
+      <ul class="dropdown-menu" id="dropdownMenu">
+        <li onclick="updateContactInfo()">
+          <i class="fas fa-user-edit"></i> Actualizar contacto
+        </li>
+        <li onclick="uploadImage()">
+          <i class="fas fa-upload"></i> Cargar imagen
+        </li>
+        <li onclick="selectImage()">
+          <i class="fas fa-images"></i> Seleccionar imagen
+        </li>
+        <li class="logout" onclick="logout()">
+          <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+        </li>
+      </ul>
+    </div>
+
+    <main>
+      <h1>Bienvenido</h1>
+    </main>
+
+
+  </body>
+  <script src="src/js/home.js"></script>
 </html>

@@ -1,0 +1,259 @@
+/* General Styles */
+body {
+  font-family: 'montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #eef5f4;
+}
+
+/* Header */
+.header {
+  background-color: #fff;
+  padding: 15px 0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 20;
+}
+.header-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 25px 5px 25px;
+}
+
+.header-buttons a {
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-left: 15px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+.logo img{
+  width: 226px;
+  height: 77,0043px;
+}
+.btn-light {
+  color: #1b5e20;
+  border-radius: 50px!important;
+  background-color: #fff;
+  border: 2px solid #1b5e20;
+}
+
+.btn-light:hover {
+  background-color: #1b5e20;
+  color: #fff;
+}
+
+.btn-dark {
+  background-color: #1b5e20;
+  border-radius: 50px!important;
+  color: #fff;
+}
+
+.btn-dark:hover {
+  background-color: #128d19;
+}
+
+/* Hero Section */
+.hero {
+  height: 600px;
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://distritech.com/cdn/shop/articles/Tecnologia-y-Sostenibilidad-1_8284afa8-19d6-4b51-a0cf-fa3e7822d3aa.jpg?v=1723125471");
+}
+
+.hero h1 {
+  font-size: 40px;
+  font-weight: 900;
+  padding-top: 70px;
+}
+
+/* Features Section */
+.features {
+  background-color: #fafafa;
+  padding: 50px 0;
+  
+}
+
+.features-grid {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  
+}
+
+.feature {
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 23%;
+  height: 210px;
+  transition: transform 0.3s ease-in-out;
+  margin: 10px;
+  margin-top: -180px;
+  z-index: 10;
+  
+}
+
+.feature:hover {
+  transform: translateY(-20px);
+}
+
+.feature-icon img {
+  max-width: 70px;
+  margin-bottom: 15px;
+}
+
+/* Stats Section */
+
+.stats{
+   padding: 30px 30px 100px 30px;
+   background-color: #fafafa;  
+}
+.stats-grid {
+  display: flex;
+  padding: 0px 100px 50px 100px;
+  text-align: center;
+}
+h2{
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+}
+.stat{
+  width: 50%;
+  height: 300px;
+  align-content: center;
+  margin: 5px;
+}
+.stat_1{
+background-color: #194732;
+}
+.stat_2{
+  background-color: #409037;
+  }
+.stat h2 {
+  font-size: 66px;
+  font-weight: 800;
+  color: #ffffff;
+}
+.stat p{
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: -50px;
+}
+/* Steps Section */
+.steps {
+  padding: 50px 0;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.steps-grid {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  padding: 0px 150px 0px 150px;
+ }
+.steps-image{
+  width: 50%;
+}
+.steps-image img {
+  width: 300px;
+  border-radius: 10px;
+  padding-left: 70px;
+}
+
+.steps-content{
+  width: 50%;
+  padding: 150px;
+ 
+
+}
+.steps-content h2{
+  text-align: left;
+  font-weight: 900;
+  color: #3e3e3e;
+  line-height: 1;
+  font-size: 35px;
+  padding-left: 40px;
+}
+
+.steps-content ul {
+  list-style: none;
+  padding-bottom: 20px;
+  padding-left: -20px;
+}
+
+.steps-content ul li {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: -15px;
+  color: #3e3e3e;
+}
+
+.btn-green{
+  padding: 15px;
+  background-color: #ffffff;
+  border: 3px solid #145417;;
+  color: #145417;;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  border-radius: 50px!important;
+  margin-left: 40px;
+  padding: 15px 35px 15px 35px;
+}
+.btn-green:hover{
+  color: #ffffff;
+  background-color: #145417;
+}
+
+/* Footer */
+.footer {
+  background-color: #282828;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+.footer-content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 50px 0px 50px;
+}
+.social-icons a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.social-icons a img {
+  width: 30px;
+  margin: 0 10px;
+}
+
+/* media query 
+@media (min-width: 768px) {
+  .header-container{
+    flex-direction: row;
+  }
+}*/

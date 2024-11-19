@@ -1,3 +1,6 @@
+
+
+// Función de registro
 async function registro() {
     const nombre_usuario = document.getElementById('nombre_usuario').value;
     const contrasena = document.getElementById('contrasena').value;
@@ -8,8 +11,8 @@ async function registro() {
         return;
     }
 
-    if (!email ) {
-        Swal.fire("Error", " el Correo  del usuario  es incorrecto ", "error");
+    if (!email) {
+        Swal.fire("Error", "El Correo del usuario es incorrecto ", "error");
         return;
     }
 

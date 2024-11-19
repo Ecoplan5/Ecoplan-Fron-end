@@ -21,8 +21,8 @@ async function recuperar() {
             // Éxito: Mostrar mensaje y redirigir
             Swal.fire("Éxito", "Hemos enviado un correo de recuperación. Revisa tu bandeja de entrada.", "success");
             setTimeout(() => {
-                window.location = "login.html";
-            }, 5000);
+                window.location = "cambiarContrasena.html";
+            }, 9000);
         } else {
             // Error del servidor o usuario no encontrado
             const errorData = await response.json(); // Leer el cuerpo de la respuesta
