@@ -1,0 +1,99 @@
+body {
+    font-family: montserrat, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+}
+
+.logo {
+    width: 500px; /* Aumenta el tamaño del logo */
+
+    height: auto; /* Mantiene la proporción original de la imagen */
+    margin-bottom: 10px; /* Ajusta el margen inferior */
+    display: block; /* Asegura que sea un bloque independiente */
+    margin-left: auto; /* Centra horizontalmente */
+    margin-right: auto;
+}
+
+
+.logo-container {
+    flex: 2; /* Ocupa más espacio */
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    background-image: url('../image/planeta1.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.login-container {
+    
+    flex: 1; /* Ocupa menos espacio */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 20px;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-container .input-group {
+    width: 80%;
+    max-width: 400px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+.button {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #14432F;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0b291c;
+}
+
+.enlaces {
+    display: inline-block;
+    margin: 10px;
+    font-weight: bold; /* Esto hace que el texto esté en negrita */
+
+    font-size: 14px;
+    text-decoration: none;
+    color: #2f53b7;
+}
+
+.enlaces:hover {
+    text-decoration: underline;
+}
+
+
+.error-message {
+    color: red;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-align: center;
+}
