@@ -2,13 +2,12 @@
   "name": "frontecoplan",
   "version": "1.0.0",
   "main": "index.js",
-"scripts": {
-  "dev": "parcel login.html", 
-  "build": "parcel build login.html", 
-  "start": "lite-server", 
-  "test": "echo \"Error: no test specified\" && exit 1"
-}
-,
+  "scripts": {
+    "dev": "parcel landing.html --open",
+    "build": "parcel build landing.html --public-url ./",
+    "start": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+ },
 
   "keywords": [],
   "author": "",
@@ -22,6 +21,7 @@
   },
   "devDependencies": {
     "lite-server": "^2.6.1",
+    "open": "^10.1.0",
     "parcel": "^2.13.0",
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4"
