@@ -1,11 +1,9 @@
-
 async function login() {
     const nombre_usuario = document.getElementById('nombre_usuario').value;
     const contrasena = document.getElementById('contrasena').value;
 
-
     if (!nombre_usuario || !contrasena) {
-        Swal.fire("Error", "Usuario o contraseña son incorrectos ", "error");
+        Swal.fire("Error", "Usuario o contraseña son incorrectos", "error");
         return;
     }
 
@@ -24,10 +22,22 @@ async function login() {
         });
 
         if (response.ok) {
-            Swal.fire("Éxito", "Registro exitoso", "success");
-            setTimeout(() => {
-                window.location = "index.html"; 
-            }, 2000);
+            const responseData = await response.json();
+            
+            // Verificar si el backend ha enviado un token
+            if (responseData.token) {
+                console.log("Token recibido:", responseData.token);  // Ver el token en la consola
+
+                // Guardar el token en localStorage para su uso posterior
+                localStorage.setItem('token', responseData.token);
+
+                Swal.fire("Éxito", "Login exitoso", "success");
+                setTimeout(() => {
+                    window.location = "index.html"; 
+                }, 2000);
+            } else {
+                Swal.fire("Error", "No se recibió un token válido", "error");
+            }
         } else {
             // Error del servidor o usuario no encontrado
             const errorData = await response.json(); // Leer el cuerpo de la respuesta
