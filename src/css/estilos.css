@@ -6,6 +6,7 @@ body {
     display: flex;
 }
 
+
 .logo {
     width: 500px; /* Aumenta el tamaño del logo */
     height: auto; /* Mantiene la proporción original de la imagen */
