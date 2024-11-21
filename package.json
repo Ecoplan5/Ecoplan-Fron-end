@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel landing.html --open",
-    "build": "parcel build landing.html --public-url ./",
-    "start": "lite-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
- },
+  "dev": "parcel index.html --open",
+  "build": "parcel build landing.html --public-url ./",
+  "start": "lite-server",
+  "test": "echo \"Error: no test specified\" && exit 1"
+},
+
 
   "keywords": [],
   "author": "",

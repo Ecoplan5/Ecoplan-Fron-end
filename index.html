@@ -4,35 +4,57 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="src/css/estilos.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="src/image/favicon-11.png"
+      type="image/x-icon"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <!-- Font Awesome para los íconos -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      
     />
-    <link rel="stylesheet" href="src/css/stylosHome.css">
-  
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="src/css/stylosHome.css" />
   </head>
   <body>
     <div class="header">
       <div class="avatar-container" onclick="toggleDropdown()">
         <div class="avatar-container">
-            <div class="circle">
-              <img src="../image/planeta1.jpg" >
-            </div>
+          <div class="circle">
+            <img src="src/image/planeta1.jpg" />
           </div>
-          
-        <div class="username" id="username">Feliciano M</div>
+        </div>
+
+        <div class="username" id="usuario"></div>
       </div>
       <ul class="dropdown-menu" id="dropdownMenu">
         <li onclick="updateContactInfo()">
-          <i class="fas fa-user-edit"></i> Actualizar contacto
+          <i class="fas fa-user-edit"></i> Actualizar Perfil
         </li>
+        <!-- Este es el input de tipo file, está oculto -->
+
+        <!-- El ícono que se usa para activar la selección del archivo -->
         <li onclick="uploadImage()">
           <i class="fas fa-upload"></i> Cargar imagen
         </li>
-        <li onclick="selectImage()">
-          <i class="fas fa-images"></i> Seleccionar imagen
-        </li>
+        <input
+          type="file"
+          id="fileInput"
+          style="display: none"
+          onchange="handleFileChange(event)"
+        />
+
+        
         <li class="logout" onclick="logout()">
           <i class="fas fa-sign-out-alt"></i> Cerrar sesión
         </li>
@@ -43,7 +65,43 @@
       <h1>Bienvenido</h1>
     </main>
 
+    <!-- Modal de Actualizar Contacto -->
+    <div id="modalActualizarContacto" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close" onclick="cerrarModal()">&times;</span>
+        <img class="logo" src="src/image/logo.png" alt="Logo" />
 
+        <h2>Actualizar Perfil</h2>
+        <form id="formActualizarUsuario">
+          <div>
+            <label for="nombre_usuario">Nombre de Usuario:</label>
+            <input type="email" id="nombre_usuario" name="nombre_usuario" />
+          </div>
+          <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" />
+          </div>
+          <div>
+            <label for="contrasena">Nueva contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" />
+          </div>
+          <div>
+            <label for="contrasena">Confirmar contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" />
+          </div>
+
+          <!-- Mostrar contraseña -->
+          <div class="show-password">
+            <input type="checkbox" id="verYocultarContrasena" />
+            <label for="verYocultarContrasena"> Mostrar Contraseña</label>
+          </div>
+          <button type="button" onclick="actualizarUsuario()">
+            Actualizar
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="src/js/home.js"></script>
   </body>
-  <script src="src/js/home.js"></script>
 </html>

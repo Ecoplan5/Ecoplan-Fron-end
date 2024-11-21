@@ -8,7 +8,7 @@ body {
 
 
 .logo {
-    width: 500px; /* Aumenta el tamaño del logo */
+    width: 300px; /* Aumenta el tamaño del logo */
     height: auto; /* Mantiene la proporción original de la imagen */
     margin-bottom: 10px; /* Ajusta el margen inferior */
     display: block; /* Asegura que sea un bloque independiente */

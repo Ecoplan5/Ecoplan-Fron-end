@@ -28,7 +28,7 @@ async function registro() {
         if (response.ok) {
             Swal.fire("\xc9xito", "Registro exitoso", "success");
             setTimeout(()=>{
-                window.location = "login.html";
+                window.location = "/login.html";
             }, 1000);
         } else {
             // Error del servidor o usuario no encontrado

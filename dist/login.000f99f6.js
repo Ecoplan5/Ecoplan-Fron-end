@@ -19,26 +19,24 @@ async function login() {
         });
         if (response.ok) {
             const responseData = await response.json();
-            // Verificar si el backend ha enviado un token
-            if (responseData.token) {
-                console.log("Token recibido:", responseData.token); // Ver el token en la consola
-                // Guardar el token en localStorage para su uso posterior
-                localStorage.setItem('token', responseData.token);
-                Swal.fire("\xc9xito", "Login exitoso", "success");
+            if (responseData.token && responseData.usuario) {
+                // Guardar token y datos del usuario en localStorage
+                localStorage.setItem("token", responseData.token);
+                localStorage.setItem("usuario", JSON.stringify(responseData.usuario));
+                Swal.fire("\xc9xito", "Inicio de sesi\xf3n exitoso", "success");
                 setTimeout(()=>{
-                    window.location = "index.html";
+                    console.log("Mandando al index...");
+                    window.location.href = "/index.html";
                 }, 2000);
-            } else Swal.fire("Error", "No se recibi\xf3 un token v\xe1lido", "error");
+            } else Swal.fire("Error", "Datos de inicio de sesi\xf3n inv\xe1lidos.", "error");
         } else {
-            // Error del servidor o usuario no encontrado
-            const errorData = await response.json(); // Leer el cuerpo de la respuesta
-            const mensajeError = errorData.mensaje || "Error desconocido"; // Fallback si no se incluye mensaje
+            const errorData = await response.json();
+            const mensajeError = errorData.mensaje || "Error desconocido";
             Swal.fire("Error", mensajeError, "error");
         }
     } catch (error) {
-        console.error(error);
-        // Error de conexión o problema en el fetch
-        Swal.fire("Error", "No se pudo conectar con el servidor. Int\xe9ntalo m\xe1s tarde.", "error");
+        console.error("Error en la conexi\xf3n:", error);
+        Swal.fire("Error", "No se pudo conectar con el servidor.", "error");
     }
 }
 
