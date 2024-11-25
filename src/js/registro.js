@@ -17,10 +17,10 @@ async function registro() {
     }
 
     const data = {
-        id_rol: 2,
         nombre_usuario,
         contrasena,
         email,
+        
     };
 
     try {

@@ -210,3 +210,26 @@ main {
   font-size: 14px;
   color: #555;
 }
+
+
+
+/* Contenedor donde se muestran los avatares */
+#avatarsList {
+  display: flex; /* Para que las imágenes se alineen horizontalmente */
+  overflow-x: auto; /* Permite desplazarse si las imágenes son muchas */
+  gap: 10px; /* Espacio entre las imágenes */
+  padding: 10px;
+}
+
+/* Estilo para cada avatar */
+.avatar-item {
+  width: 50px; /* Ajusta el tamaño según lo que necesites */
+  height: 50px; /* Mantiene la proporción */
+  object-fit: cover; /* Asegura que la imagen se recorte para no deformarse */
+  cursor: pointer; /* Cambia el cursor cuando se pasa sobre la imagen */
+  transition: transform 0.2s ease-in-out; /* Efecto de animación cuando el cursor pasa por encima */
+}
+
+.avatar-item:hover {
+  transform: scale(1.1); /* Aumenta el tamaño de la imagen cuando se pasa el cursor */
+}

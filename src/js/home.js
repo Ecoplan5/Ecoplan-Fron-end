@@ -78,7 +78,7 @@ function cerrarModal() {
 // Cambiar la visibilidad de las contraseñas en el formulario
 document.getElementById("verYocultarContrasena").addEventListener("change", function () {
   const passwordInputs = document.querySelectorAll('input[type="password"], input[type="text"]');
-  
+
   passwordInputs.forEach((input) => {
     // Cambia el tipo según el estado del checkbox
     input.type = this.checked ? "text" : "password";
@@ -86,74 +86,68 @@ document.getElementById("verYocultarContrasena").addEventListener("change", func
 });
 
 
-// Función para manejar el cambio de archivo (selección de imagen)
-async function handleFileChange(event) {
-  const file = event.target.files[0];
-  if (file) {
-    try {
-      const formData = new FormData();
-      formData.append('foto', file);
+// Array con los nombres de las imágenes
 
-      // Obtener ID de usuario del localStorage o desde userInfo
-      const userId = localStorage.getItem('userId') || (await getUserInfo()).id_usuario;
-      formData.append('id_usuario', userId);
+// Array con los nombres de las imágenes
+const avatars = [
+  "monster flat-02 (1).svg",
+  "monster flat-02.svg",
+  "monster flat-03.svg",
+  "monster flat-04.svg",
+  "monster flat-05.svg",
+  "monster flat-06.svg",
+  "monster flat-08.svg",
+];
 
-      // Seleccionar endpoint según el usuario
-      const endpoint = userName === 'Admin'
-        ? 'http://localhost:8095/api/upload/admin-profile'
-        : 'http://localhost:8095/api/upload/empleado-profile';
+// Ruta base donde están almacenadas las imágenes SVG
+const avatarPath = "src/image/avatars/";
 
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
-
-      const data = await response.json();
-      if (response.ok) {
-        const fullUrl = `http://localhost:8095/uploads/${data.filePath}`;
-        setProfileImage(fullUrl);
-
-        // Convertir la imagen a base64 y almacenarla
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          const base64Image = reader.result;
-          localStorage.setItem('profileImage', base64Image); // Guardar en localStorage
-          setProfileImage(base64Image); // Actualizar la imagen en el frontend
-        };
-        reader.readAsDataURL(file);
-
-        Swal.fire('Imagen actualizada', 'La imagen de perfil ha sido actualizada con éxito', 'success');
-      } else {
-        Swal.fire('Error', data.message || 'Error al subir la imagen', 'error');
-      }
-    } catch (error) {
-      console.error('Error al subir la imagen:', error);
-      Swal.fire('Error', 'Error al subir la imagen', 'error');
-    }
-  }
-};
-
-// Función para activar el input de archivo// Función para activar el input de archivo
-
-
-// Función que se activa cuando haces clic en el ícono de "Cargar imagen"
+// Función para mostrar la lista de avatares al hacer clic en "Cargar imagen"
 function uploadImage() {
-  const fileInput = document.getElementById("fileInput");
-  fileInput.click();  // Esto abre el cuadro de selección de archivos
+  const avatarContainer = document.getElementById('avatarSelectionContainer');
+  const avatarsList = document.getElementById('avatarsList');
+  avatarsList.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevas imágenes
+
+  // Mostrar el contenedor de selección de avatares
+  avatarContainer.style.display = 'block';
+
+  // Recorrer el array de avatares y crear una imagen por cada uno
+  avatars.forEach(avatar => {
+    const avatarImg = document.createElement('img');
+    avatarImg.src = avatarPath + avatar;  // Ruta completa de la imagen
+    avatarImg.alt = avatar;
+    avatarImg.classList.add('avatar-item');
+
+    // Evento para seleccionar la imagen cuando se hace clic en ella
+    avatarImg.addEventListener('click', () => {
+      setProfileImage(avatarPath + avatar); // Establecer imagen de perfil
+      avatarContainer.style.display = 'none'; // Ocultar el contenedor después de seleccionar
+    });
+
+    avatarsList.appendChild(avatarImg);  // Añadir la imagen al contenedor
+  });
 }
 
-// Función para manejar el cambio cuando un archivo es seleccionado
-function handleFileChange(event) {
-  const file = event.target.files[0];  // Obtiene el primer archivo seleccionado
-  if (file) {
-    console.log("Archivo seleccionado: ", file.name);
-    // Aquí puedes agregar el código para cargar o procesar el archivo
+// Función para establecer la imagen de perfil y guardarla en localStorage
+function setProfileImage(imageUrl) {
+  const profileImage = document.querySelector('.avatar-container img');
+  profileImage.src = imageUrl; // Cambiar la imagen de perfil
+
+  // Guardar la imagen seleccionada en localStorage
+  localStorage.setItem('profileImage', imageUrl);
+}
+
+// Función para cargar la imagen de perfil guardada en localStorage
+function cargarImagenDePerfil() {
+  const savedImage = localStorage.getItem('profileImage');
+  if (savedImage) {
+    const profileImage = document.querySelector('.avatar-container img');
+    profileImage.src = savedImage; // Establecer la imagen guardada
   }
 }
 
+// Llamar a la función cuando el documento se cargue
+document.addEventListener("DOMContentLoaded", cargarImagenDePerfil);
 
 
 /**
@@ -163,6 +157,7 @@ function mostrarUsuario(usuario) {
   document.getElementById("nombre_usuario").value = usuario.nombre_usuario || "";
   document.getElementById("email").value = usuario.email || "";
 };
+
 
 async function actualizarUsuario() {
   const nombre_usuario = document.getElementById("nombre_usuario").value;
@@ -194,6 +189,14 @@ async function actualizarUsuario() {
     });
 
     if (response.ok) {
+      // Actualizar localStorage con los nuevos datos
+      const updatedUser = { ...usuarioData, nombre_usuario, email };
+      localStorage.setItem("usuario", JSON.stringify(updatedUser));
+
+      // Actualizar el nombre de usuario y el email en el DOM
+      document.getElementById("usuario").textContent = nombre_usuario;
+      document.getElementById("email").value = email;
+
       Swal.fire("Éxito", "Datos actualizados correctamente", "success");
       cerrarModal();
     } else {
@@ -207,6 +210,7 @@ async function actualizarUsuario() {
   }
 }
 
+
 // Función para mostrar/ocultar el menú desplegable
 function toggleDropdown() {
   const menu = document.getElementById("dropdownMenu");
@@ -218,10 +222,26 @@ function toggleDropdown() {
 
 // Función para cerrar sesión
 function logout() {
-  console.log("Cerrando sesión...");
-  localStorage.removeItem("token");
-  localStorage.removeItem("usuario");
-  window.location.href = "login.html";
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: "No podrás revertir esta acción",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sí, cerrar sesión',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Si el usuario confirma, proceder a cerrar sesión
+      localStorage.removeItem("token");
+      localStorage.removeItem("usuario");
+      window.location.href = "landing.html"; // Redirigir al login
+    } else {
+      // Si el usuario cancela, no hacer nada
+      console.log("Cierre de sesión cancelado");
+    }
+  });
 }
 
 // Cierra el menú al hacer clic fuera

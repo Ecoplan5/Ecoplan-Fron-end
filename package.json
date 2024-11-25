@@ -2,13 +2,9 @@
   "name": "frontecoplan",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-  "dev": "parcel index.html --open",
-  "build": "parcel build landing.html --public-url ./",
-  "start": "lite-server",
-  "test": "echo \"Error: no test specified\" && exit 1"
+ "scripts": {
+  "start": "lite-server"
 },
-
 
   "keywords": [],
   "author": "",

@@ -43,16 +43,16 @@
         </li>
         <!-- Este es el input de tipo file, está oculto -->
 
-        <!-- El ícono que se usa para activar la selección del archivo -->
         <li onclick="uploadImage()">
           <i class="fas fa-upload"></i> Cargar imagen
         </li>
-        <input
-          type="file"
-          id="fileInput"
-          style="display: none"
-          onchange="handleFileChange(event)"
-        />
+        
+        <!-- Contenedor donde se mostrarán los avatares -->
+        <div id="avatarSelectionContainer" style="display: none;">
+          <div id="avatarsList" class="avatars-list">
+            <!-- Las imágenes se generarán dinámicamente aquí -->
+          </div>
+        </div>
 
         
         <li class="logout" onclick="logout()">
