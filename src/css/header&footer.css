@@ -1,0 +1,139 @@
+*{
+    font-family: montserrat, sans-serif;
+  }
+  .logo{
+    width: 15%;
+  }
+  @media (max-width: 767px){
+    .logo{
+      width: 40%!important;
+    }
+  }
+  .header{
+    background-color: #ffffff!important;
+    border:none;
+  }
+  .navbar-nav{
+    font-size: medium;
+    font-weight: 500;
+  }
+  .navbar-collapse{
+    margin-top: 20px!important;
+  }
+  .navbar-nav li a:hover {
+    color:  rgb(9, 70, 25);
+  }
+  .dropdown-menu{
+    left: -110px!important;
+    height: auto;
+    padding: 15px 15px 15px 15px!important;
+  }
+  .fa-user{
+    border-radius: 100px;
+    background-color: #1b5e20;
+    padding: 10px;
+    color: #ffffff;
+    margin-top: -15px;
+  }
+  .fa-user:hover{
+    background-color: #17911f;
+  }
+
+  .footer {
+    background-color: #1b5e20;
+    color: white;
+  }
+  
+  .footer-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+  }
+  .list-unstyled{
+    text-align: end!important;
+  }
+  .footer-description {
+    font-size: 1rem;
+  }
+  
+  .newsletter-form .input-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .newsletter-form .form-control {
+    border-radius: 20px 0 0 20px;
+    padding: 10px;
+    flex-grow: 1;
+  }
+  
+  .newsletter-form .btn {
+    border-radius: 0 20px 20px 0;
+    padding: 10px 20px;
+  }
+  
+  .footer-links-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .footer a {
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .footer a:hover {
+    color: #8bc34a;
+  }
+  .footer-links-title{
+    text-align: right;
+  }
+  
+  @media (max-width: 768px) {
+    .footer .input-group {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .list-unstyled{
+      text-align: center!important;
+    }
+  }
+  
+  *{
+  font-family: montserrat, sans-serif;
+}
+.logo{
+  width: 15%;
+}
+@media (max-width: 767px){
+  .logo{
+    width: 40%!important;
+  }
+}
+.header{
+  background-color: #ffffff!important;
+  border:none;
+}
+.navbar-nav{
+  font-size: medium;
+  font-weight: 500;
+}
+.navbar-nav li a:hover {
+  color:  rgb(9, 70, 25);
+}
+.carousel-item a img{ 
+    height: 450px;            
+    width: 1920px;               
+    object-fit: cover;     
+    object-position: center; 
+}
+.dropdown-menu{
+  left: -110px!important;
+  height: auto;
+  padding: 15px 15px 15px 15px!important;
+}
+.logo_blanco{
+  width: 200px!important;
+  margin-bottom: 50px;
+}
+
+
