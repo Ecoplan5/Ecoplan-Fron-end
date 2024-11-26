@@ -1,259 +1,268 @@
-/* General Styles */
-body {
-  font-family: 'montserrat', sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: #eef5f4;
+*{
+  font-family: montserrat, sans-serif;
 }
-
-/* Header */
-.header {
-  background-color: #fff;
-  padding: 15px 0;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
+.header{
+  height: auto;
   width: 100%;
-  z-index: 20;
-}
-.header-container{
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 5px 25px 5px 25px;
-}
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  align-items: center;
+  padding: 20px 20px 20px 20px;
+  z-index: 20;
 
-.header-buttons a {
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-left: 15px;
-  font-weight: bold;
-  transition: all 0.3s ease-in-out;
 }
 .logo img{
-  width: 226px;
-  height: 77,0043px;
+  width: 20%;
 }
-.btn-light {
-  color: #1b5e20;
-  border-radius: 50px!important;
-  background-color: #fff;
+@media  (max-width:768px){
+  .logo img{
+      width: 100%;
+      padding: 20px 20px 20px 20px;
+      text-align: center;
+  }
+}
+.btn-primary{
+  font-weight: 600;
+  padding: 10px 20px 10px 20px;
+  border-radius: 50px;
+}
+.btn_reg{
   border: 2px solid #1b5e20;
+  color: #1b5e20;
+  background-color: #fff;
+  text-decoration: none;
 }
-
-.btn-light:hover {
+.btn_reg:hover{
+  border: 2px solid #1b5e20;
   background-color: #1b5e20;
   color: #fff;
 }
-
-.btn-dark {
+.btn_ses{
+  border: 2px solid #1b5e20;
   background-color: #1b5e20;
-  border-radius: 50px!important;
   color: #fff;
 }
-
-.btn-dark:hover {
-  background-color: #128d19;
+.btn_ses:hover{
+  border: 2px solid #248c2b;
+  background-color: #248c2b;
+  color: #fff;
 }
-
-/* Hero Section */
-.hero {
-  height: 600px;
+.bg-image-container {
   position: relative;
+  background-image: url('https://distritech.com/cdn/shop/articles/Tecnologia-y-Sostenibilidad-1_8284afa8-19d6-4b51-a0cf-fa3e7822d3aa.jpg?v=1723125471'); /* Cambia esta URL por tu imagen */
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+.display-4{
+  font-size: 50px;
+  font-weight: 900;
+}   
+ 
+.lead{
+  font-size: 20px;
+  font-weight: 500;
 }
 
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+.column-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  text-align: center;
   padding: 20px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://distritech.com/cdn/shop/articles/Tecnologia-y-Sostenibilidad-1_8284afa8-19d6-4b51-a0cf-fa3e7822d3aa.jpg?v=1723125471");
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  height: 200px;
+  transition: transform 0.2s ease-in-out;
 }
-
-.hero h1 {
-  font-size: 40px;
-  font-weight: 900;
-  padding-top: 70px;
+.column-card:hover {
+  transform: translateY(-5px);
 }
-
-/* Features Section */
-.features {
-  background-color: #fafafa;
-  padding: 50px 0;
+.icon {
+  font-size: 48px;
+  color: #1b5e20;
+  margin-bottom: 15px;
+}
+@media (max-width: 768px) {
+  .bg-image-container {
+      height: 250px; /* Reducimos la altura en pantallas pequeñas */
+      background-size: cover; /* Mantenemos que la imagen cubra todo el contenedor */
+      background-position: center; /* Aseguramos que la imagen esté centrada */
+    }
   
+    .overlay-text h1 {
+      font-size: 1.5rem; /* Tamaño más pequeño para el título */
+    }
+  
+    .overlay-text p {
+      font-size: 1rem; /* Reducimos el tamaño del texto descriptivo */
+    }
+  
+    .overlay-text {
+      padding: 0 15px; /* Añadimos espacio lateral para que el texto no toque los bordes */
+    }
 }
-
-.features-grid {
+@media (max-width: 414px){
+  .row {
+      padding: 50px;
+    }
+}
+.column-card {
   display: flex;
-  justify-content: space-between;
-  padding: 50px;
-  
-}
-
-.feature {
-  background: #fff;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  width: 23%;
-  height: 210px;
-  transition: transform 0.3s ease-in-out;
-  margin: 10px;
-  margin-top: -180px;
-  z-index: 10;
-  
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  min-height: 250px; /* Altura mínima */
+  transition: transform 0.2s ease-in-out;
 }
 
-.feature:hover {
-  transform: translateY(-20px);
+.column-card:hover {
+  transform: translateY(-5px);
 }
 
-.feature-icon img {
-  max-width: 70px;
+.icon {
+  font-size: 48px;
+  color: #1b5e20;
   margin-bottom: 15px;
 }
 
-/* Stats Section */
-
-.stats{
-   padding: 30px 30px 100px 30px;
-   background-color: #fafafa;  
+@media (max-width: 768px) {
+  .column-card {
+    min-height: 300px; /* Mayor altura en pantallas pequeñas */
+  }
 }
-.stats-grid {
-  display: flex;
-  padding: 0px 100px 50px 100px;
+.green-body{
+  background-color: #1b5e20;
+  color: #fff;
+  padding: 50px 50px 50px 50px;
+}
+.txgreen-body{
+  font-size: 15px!important;
+  color: #fff!important;
+}
+.card-body{
+  height: 280px;
+  padding: 20;
+  padding: 50px 50px 50px 50px;
+}
+.iconos{
+  margin-top: -120px!important;
+  z-index: 30!important;
+  position: relative;
+}
+
+.statistics .card {
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.statistics .card:hover {
+  transform: translateY(-5px);
+}
+
+.statistics h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.statistics .card-text {
+  font-size: 12px;
+  color: #666;
+}
+
+.statistics .fs-1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.card-body a{
+  color: #1b5e20!important;
+}
+.text-success{
+  color: #ffffff!important; 
+
+}
+.text-warning{
+  color: #1b5e20!important; 
+}
+.text-info{
+  color: #1b5e20!important;
+}
+  
+.text-stats{
+  font-size: 23px!important;
+  margin-top: 50px!important;
+}
+.bg-image-section{
+  height: auto; 
+  margin: auto;
   text-align: center;
+  padding-top: 8%;
+  margin-top: -100px;
+  background-image: linear-gradient(rgba(14, 38, 14, 0.5), rgba(0, 0, 0, 0.5)), 
+  url("https://es.directoamiarmario.com/wp-content/uploads/2020/02/felicidad-1280x640.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.bg-image-section h1{
+  color: #ffffff;
 }
 h2{
+  color: #1b5e20;
+  font-size: 1.9rem!important;
+  font-weight: 900!important;
+}
+.bg-image-section p{
+  color: #ffffff;
+  padding: 30px 150px 50px 150px;
+  padding-top: 0%;
+}
+.section-items{
+  padding: 50px 50px 50px 50px;
+}
+.title_items{
   font-size: 35px;
+  font-weight: 700;
+}
+.items h4{
+  font-size: 25px;
   font-weight: 600;
-  text-align: center;
 }
-.stat{
-  width: 50%;
-  height: 300px;
-  align-content: center;
-  margin: 5px;
-}
-.stat_1{
-background-color: #194732;
-}
-.stat_2{
-  background-color: #409037;
+@media (max-width: 768px){
+  .overlay-text h1{
+   font-size: 16px;
+   margin-top: -70px;  
+   padding: 0px 0px 0px 0px; 
   }
-.stat h2 {
-  font-size: 66px;
-  font-weight: 800;
-  color: #ffffff;
-}
-.stat p{
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  margin-top: -50px;
-}
-/* Steps Section */
-.steps {
-  padding: 50px 0;
-  align-items: center;
-  background-color: #ffffff;
-}
 
-.steps-grid {
-  display: flex;
-  justify-content:center;
-  align-items: center;
-  padding: 0px 150px 0px 150px;
- }
-.steps-image{
-  width: 50%;
-}
-.steps-image img {
-  width: 300px;
-  border-radius: 10px;
-  padding-left: 70px;
-}
-
-.steps-content{
-  width: 50%;
-  padding: 150px;
- 
-
-}
-.steps-content h2{
-  text-align: left;
-  font-weight: 900;
-  color: #3e3e3e;
-  line-height: 1;
-  font-size: 35px;
-  padding-left: 40px;
-}
-
-.steps-content ul {
-  list-style: none;
-  padding-bottom: 20px;
-  padding-left: -20px;
-}
-
-.steps-content ul li {
-  font-size: 20px;
-  font-weight: 900;
-  margin-bottom: -15px;
-  color: #3e3e3e;
-}
-
-.btn-green{
-  padding: 15px;
-  background-color: #ffffff;
-  border: 3px solid #145417;;
-  color: #145417;;
-  font-weight: 600;
-  text-decoration: none;
-  position: relative;
-  border-radius: 50px!important;
-  margin-left: 40px;
-  padding: 15px 35px 15px 35px;
-}
-.btn-green:hover{
-  color: #ffffff;
-  background-color: #145417;
-}
-
-/* Footer */
-.footer {
-  background-color: #282828;
-  color: #fff;
-  text-align: center;
-  padding: 20px 0;
-}
-.footer-content{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0px 50px 0px 50px;
-}
-.social-icons a {
-  text-decoration: none;
-  color: #ffffff;
-}
-.social-icons a img {
-  width: 30px;
-  margin: 0 10px;
-}
-
-/* media query 
-@media (min-width: 768px) {
-  .header-container{
-    flex-direction: row;
+  .bg-image-section{
+      padding: 10px 10px 10px 10px;
   }
-}*/
+  .bg-image-section h1{
+      font-size: 15px;
+      padding: 10px 10px 10px 10px;
+  }
+  .bg-image-section p{
+      font-size: 12px;
+      padding: 10px 10px 10px 10px;
+  }
+}
+.mockup img{
+  width: 40%;
+  margin-left: 30%;
+}

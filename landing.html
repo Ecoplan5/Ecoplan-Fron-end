@@ -1,115 +1,170 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page - ECOPLAN</title>
-    <link rel="stylesheet" href="src/css/style.css">    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="shortcut icon" href="src/image/favicon-11.png" type="image/x-icon">
-    
+    <link rel="stylesheet" href="src/css/style.css">
+    <title>Ecoplan</title>
 </head>
 <body>
 
-    
-    <!-- Header -->
-    <header class="header">
-        <div class="header-container">
-            <div class="logo">
-                <img src="src/image/logo.png" alt="Logo ECOPLAN" />
-            </div>
-            <nav class="header-buttons">
-                <a href="./registro.html" class="btn btn-light">Registrarse</a>
-                <a href="./login.html" class="btn btn-dark">Iniciar Sesión</a>
-                
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-overlay">
-            <h1>MEJORA TU HUELLA DE CARBONO, <br> MEJORA EL PLANETA</h1>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features">
-        <div class="features-grid">
-            <div class="feature">
-                <div class="feature-icon">
-                    <img src="src/image/icono1.png" alt="Icono 1">
+        <header class="header">
+            <div class="container-xl">
+              <div class="d-flex flex-column flex-sm-row align-items-center justify-content-between">
+                <!-- Logo -->
+                <a href="#" class=" logo mb-3 mb-sm-0">
+                  <img src="src/image/logo.png" alt="Logo" class="img-fluid">
+                </a>
+          
+                <!-- Botones -->
+                <div class="d-flex flex-column flex-sm-row align-items-center">
+                  <a href="http://127.0.0.1:5501/registro.html" class="btn btn-primary btn_reg mb-2 mb-sm-0 me-sm-2">Registrarse</a>
+                  <a href="http://127.0.0.1:5501/login.html" class="btn btn-primary btn_ses btn-outline-primary">Inscribirse</a>
                 </div>
-                <p>Calcula tu huella de carbono rápido y de manera sencilla.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">
-                    <img src="src/image/icono2.png" alt="Icono 2">
-                </div>
-                <p>Recibe recomendaciones y acciones prácticas para reducir tu impacto en el medio ambiente.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">
-                    <img src="src/image/icono3.png" alt="Icono 3">
-                </div>
-                <p>Haz parte de una comunidad comprometida con su planeta.</p>
-            </div>
-            <div class="feature">
-              <div class="feature-icon">
-                  <img src="src/image/icono4.png" alt="Icono 3">
               </div>
-              <p>Accede a retos ambientales que generan impacto positivo en el planeta.</p>
+            </div>
+          </header>   
+    
+           <!-- contenedor de imagen -->
+           <div class="container-xll">
+            <div class="bg-image-container">
+              <div class="overlay-text">
+                <h1 class="display-4">MEJORA TU HUELLA DE CARBONO,
+                    MEJORA EL PLANETA</h1>
+              </div>
+            </div>
           </div>
-        </div>
-    </section>
+    
+          <div class="container iconos my-5">
+            <div class="row g-4">
+              <!-- Columna 1 -->
+              <div class="col-12 col-sm-6 col-lg-3">
+                <div class="column-card text-center">
+                  <i class="icon bi bi-calculator"></i> <!-- Ícono de calculadora -->
+                  <h5 class="mt-3">Columna 1</h5>
+                  <p>Calcula tu huella de carbono rápido y de manera sencilla.</p>
+                </div>
+              </div>
+              <!-- Columna 2 -->
+              <div class="col-12 col-sm-6 col-lg-3">
+                <div class="column-card text-center">
+                  <i class="icon bi bi-lightbulb"></i> <!-- Ícono de bombilla para ideas -->
+                  <h5 class="mt-3">Columna 2</h5>
+                  <p>Recibe recomendaciones y acciones prácticas para reducir tu impacto en el medio ambiente.</p>
+                </div>
+              </div>
+              <!-- Columna 3 -->
+              <div class="col-12 col-sm-6 col-lg-3">
+                <div class="column-card text-center">
+                  <i class="icon bi bi-people"></i> <!-- Ícono de personas para comunidad -->
+                  <h5 class="mt-3">Columna 3</h5>
+                  <p>Haz parte de una comunidad comprometida con su planeta.</p>
+                </div>
+              </div>
+              <!-- Columna 4 -->
+              <div class="col-12 col-sm-6 col-lg-3">
+                <div class="column-card text-center">
+                  <i class="icon bi bi-trophy"></i> <!-- Ícono de trofeo para retos -->
+                  <h5 class="mt-3">Columna 4</h5>
+                  <p>Accede a retos ambientales que generan impacto positivo en el planeta.</p>
+                </div>
+              </div>
+            </div>
+          </div> 
 
-    <!-- Stats Section -->
-    <section class="stats">
-      <h2>Juntos estamos <br> haciendo la diferencia</h2>
-        <div class="container stats-grid">
-            <div class="stat stat_1">
-                <h2>+5,000</h2>
-                <p>toneladas de CO₂ compensadas.</p>
+          <section class="statistics my-5 py-5">
+            <div class="container-xl">
+              <h2 class="text-stats text-center mb-4">Estadísticas Clave de Nuestro Impacto en la Reducción de la Huella de Carbono</h2>
+              <div class="row text-center">
+                <!-- Estadística 1 -->
+                <div class="col-12 col-md-3 mb-4">
+                  <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                      <h5 class="card-title">Toneladas de CO₂ Reducidas</h5>
+                      <p class="card-text fs-1 text-primary">3,100</p>
+                      <p class="card-text">Con la ayuda de nuestros usuarios, hemos reducido 3,100 toneladas de CO₂ este año.</p>
+                    </div>
+                  </div>
+                </div>
+          
+                <!-- Estadística 2 -->
+                <div class="col-12 col-md-6 mb-4">
+                  <div class="card shadow-sm h-100">
+                    <div class="card-body green-body">
+                      <h5 class="card-title">Usuarios Comprometidos</h5>
+                      <p class="card-text fs-1 text-success">20,500</p>
+                      <p class="txgreen-body card-text">Más de 20,000 usuarios están contribuyendo activamente a la reducción de la huella de carbono.</p>
+                    </div>
+                  </div>
+                </div>
+          
+                <!-- Estadística 3 -->
+                <div class="col-12 col-md-3 mb-4">
+                  <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                      <h5 class="card-title">Proyectos de Energía Renovable</h5>
+                      <p class="card-text fs-1 text-warning">75</p>
+                      <p class="card-text">Hemos apoyado más de 75 proyectos de energía renovable para crear un futuro más sostenible.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="stat stat_2">
-                <h2>90%</h2>
-                <p>De usuarios más comprometidos.</p>
+          </section>
+          <div class="row">
+            <div class="col-11 bg-image-section">
+                <h1 class="display-4">Transforma tu Impacto Ambiental</h1>
+                <p class="lead">"Descubre cómo cada pequeña acción puede marcar la diferencia para nuestro planeta. Calcula tu huella de carbono y únete al cambio."</p>
             </div>
-        </div>
-    </section>
+          </div>
 
-    <!-- Steps Section -->
-    <section class="steps">
-        <div class="steps-grid">
-            <div class="steps-image">
-                <img src="src/image/phone.png" alt="Teléfono mostrando naturaleza">
+          <section class="two-columns my-5 py-5">
+            <div class="container">
+              <div class="row align-items-center">
+                <!-- Columna de la imagen -->
+                <div class="col-12 col-md-6 mb-4 mb-md-0 mockup">
+                    <img src="src/image/phone.png" alt="mockup">
+                </div>
+                <!-- Columna de texto -->
+                <div class="section-items col-12 col-md-6">
+                  <h2 class="mb-4 title_items">Descubre cómo puedes ayudar al medio ambiente</h2>
+                  <!-- Bloque 1 -->
+                  <div class="mb-3 items">
+                    <h4>Calcula tu huella de carbono</h4>
+                    <p>Utiliza nuestras herramientas para conocer tu impacto ambiental y cómo reducirlo.</p>
+                  </div>
+                  <!-- Bloque 2 -->
+                  <div class="mb-3 items">
+                    <h4>Recibe recomendaciones personalizadas</h4>
+                    <p>Accede a consejos prácticos adaptados a tu estilo de vida para un impacto positivo.</p>
+                  </div>
+                  <!-- Bloque 3 -->
+                  <div class="mb-4 items">
+                    <h4>Únete a nuestra comunidad</h4>
+                    <p>Forma parte de un movimiento global comprometido con el futuro del planeta.</p>
+                  </div>
+                  <!-- Botón -->
+                  <a href="http://127.0.0.1:5501/registro.html" class="btn_reg btn-primary btn-lg">Registrarse</a>
+                </div>
+              </div>
             </div>
-            <div class="steps-content">
-                <h2>Empieza en tres simples pasos:</h2>
-                <ul>
-                    <li>Regístrate:</li>
-                      <p>Crea tu cuenta gratis en menos de 1 minuto.</p>
-                    <li>Calcula tu huella:</li>
-                      <p> Introduce algunos datos básicos y mide tu impacto.</p>
-                    <li>Actúa: </li>
-                      <p>Accede a consejos, retos y recursos para mejorar tu impacto.</p>
-                </ul>
-                <a href="/registro.html" class="btn btn-green">Regístrate Ahora</a>
-            </div>
-        </div>
-    </section>
+          </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>© 2024 ECOPLAN | Todos los derechos reservados.</p>
-            <div class="social-icons">
-                <a href="#"><img src="src/image/facebook.png" alt="Facebook"></a>
-                <a href="#"><img src="src/image/x.png" alt="X"></a>
-                <a href="#"><img src="src/image/instagram.png" alt="Instagram"></a>
+          <footer class="footer bg-dark text-white py-4">
+            <div class="container text-center">
+              <p class="mb-2">© 2024 ECOPLAN. Todos los derechos reservados.</p>
             </div>
-        </div>
-    </footer>
+          </footer>
+          
+          
+          
+       
+      
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
-<script src="src/js/home.js"></script>
-
 </html>
