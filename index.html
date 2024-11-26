@@ -10,7 +10,6 @@
   <link rel="shortcut icon" href="src/image/favicon-11.png" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<link rel="stylesheet" href="src/css/stilosacatualizar.css">
 <link rel="stylesheet" href="src/css/stylosHome.css">
 <body>
 
@@ -34,7 +33,6 @@
               </div>
               <div class="username" id="usuario" style="margin-left: 10px;"></div>
             </div>
-  
             <ul class="dropdown-menu" id="dropdownMenu">
               <li onclick="updateContactInfo()"><i class="fas fa-user-edit"></i> Actualizar Perfil</li>
               <li onclick="uploadImage()"><i class="fas fa-upload"></i> Cargar imagen</li>
@@ -46,7 +44,17 @@
     </div>
   </header>
   
+<!-- Contenedor para la selección de avatares -->
+<div id="avatarSelectionContainer" style="display: none;" class="avatar-container1">
+  <!-- Botón de cerrar (X) -->
+  <button class="close-modal" onclick="closeModal()">×</button>
   
+  <h2 class="title">Selecciona tu avatar</h2>
+  
+  <!-- Grid de avatares -->
+  <div id="avatarsList" class="avatars-grid"></div>
+</div>
+
 
 
   <section class="slider-section">
@@ -326,7 +334,7 @@
     <div id="modalActualizarContacto" class="modal" style="display: none">
       <div class="modal-content">
         <span class="close" onclick="cerrarModal()">&times;</span>
-        <img class="logo" src="src/image/logo.png" alt="Logo" />
+        <img class="logo1" src="src/image/logo.png" alt="Logo" />
         
 
         <h2>Actualizar Perfil</h2>

@@ -106,27 +106,57 @@ const avatarPath = "src/image/avatars/";
 function uploadImage() {
   const avatarContainer = document.getElementById('avatarSelectionContainer');
   const avatarsList = document.getElementById('avatarsList');
-  avatarsList.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevas imágenes
 
-  // Mostrar el contenedor de selección de avatares
-  avatarContainer.style.display = 'block';
+  if (!avatarContainer || !avatarsList) {
+    console.error("Falta el contenedor o la lista de avatares en el HTML.");
+    return;
+  }
 
-  // Recorrer el array de avatares y crear una imagen por cada uno
+  avatarsList.innerHTML = ''; // Limpia las imágenes previas
+
+  avatarContainer.style.display = 'block'; // Muestra el contenedor
+
   avatars.forEach(avatar => {
-    const avatarImg = document.createElement('img');
-    avatarImg.src = avatarPath + avatar;  // Ruta completa de la imagen
-    avatarImg.alt = avatar;
-    avatarImg.classList.add('avatar-item');
+    // Crear la tarjeta
+    const card = document.createElement('div');
+    card.className = 'avatar-card';
 
-    // Evento para seleccionar la imagen cuando se hace clic en ella
+    // Imagen dentro de la tarjeta
+    const avatarImg = document.createElement('img');
+    avatarImg.src = avatarPath + avatar;
+    avatarImg.alt = avatar;
+
     avatarImg.addEventListener('click', () => {
-      setProfileImage(avatarPath + avatar); // Establecer imagen de perfil
-      avatarContainer.style.display = 'none'; // Ocultar el contenedor después de seleccionar
+      setProfileImage(avatarPath + avatar); // Establecer la imagen de perfil
+      avatarContainer.style.display = 'none'; // Ocultar el contenedor
     });
 
-    avatarsList.appendChild(avatarImg);  // Añadir la imagen al contenedor
+    // Nombre del avatar (opcional)
+    const avatarName = document.createElement('div');
+    avatarName.className = 'avatar-name';
+
+    // Añadir imagen y texto a la tarjeta
+    card.appendChild(avatarImg);
+    card.appendChild(avatarName);
+
+    // Añadir la tarjeta al contenedor
+    avatarsList.appendChild(card);
   });
 }
+
+
+function closeModal() {
+  // Cierra el modal al poner su estilo display: none
+  const modal = document.getElementById('avatarSelectionContainer');
+  modal.style.display = 'none';
+}
+
+// Función para abrir el modal (puedes invocar esta función cuando quieras mostrar el modal)
+function openModal() {
+  const modal = document.getElementById('avatarSelectionContainer');
+  modal.style.display = 'block';
+}
+
 
 // Función para establecer la imagen de perfil y guardarla en localStorage
 function setProfileImage(imageUrl) {
