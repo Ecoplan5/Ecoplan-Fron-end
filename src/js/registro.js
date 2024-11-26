@@ -17,10 +17,10 @@ async function registro() {
     }
 
     const data = {
-        id_rol: 2,
         nombre_usuario,
         contrasena,
         email,
+        
     };
 
     try {
@@ -35,7 +35,7 @@ async function registro() {
         if (response.ok) {
             Swal.fire("Éxito", "Registro exitoso", "success");
             setTimeout(() => {
-                window.location = "login.html"; 
+                window.location = "/login.html"; 
             }, 1000);
         } else {
             // Error del servidor o usuario no encontrado

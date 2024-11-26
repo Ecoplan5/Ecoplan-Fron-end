@@ -2,7 +2,7 @@ let usuarioData = {};  // Para almacenar la información del usuario
 
 async function cargarUsuario() {
     try {
-        const response = await fetch('http://localhost:8092/api/obtener/2');  // Obtener usuario con ID 1 (quemado)
+        const response = await fetch('http://localhost:8092/api/obtener/1');  // Obtener usuario con ID 1 (quemado)
         if (response.ok) {
             const data = await response.json();
             usuarioData = data;  // Aquí directamente almacenamos los datos, no data.usuario
@@ -26,21 +26,6 @@ async function actualizarUsuario() {
     const nombre_usuario = document.getElementById('nombre_usuario').value;
     const email = document.getElementById('email').value;
     const contrasena = document.getElementById('contrasena').value;  // Asegúrate de agregar el campo de contraseña si se usa
-
-    if (!nombre_usuario) {
-        Swal.fire("Error", "El campo Nombre Usuario es requerido", "error");
-        return;
-    }
-
-    if (!email) {
-        Swal.fire("Error", "El correo es requerido", "error");
-        return;
-    }
-
-    if (!contrasena) {
-        Swal.fire("Error", "El campo Contraseña es requerido", "error");
-        return;
-    }
 
     const data = {
         id_usuario: usuarioData.id_usuario,  // Usar el ID del usuario cargado

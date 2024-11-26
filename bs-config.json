@@ -1,7 +1,8 @@
 {
-    "server": {
-      "baseDir": "./src",
-      "index": "login.html"
-    }
-  }
-  
+  "port": 3000,
+  "server": {
+    "baseDir": "./",
+    "index": "landing.html"
+  },
+  "notify":false
+}

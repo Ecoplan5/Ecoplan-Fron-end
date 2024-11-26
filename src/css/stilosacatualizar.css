@@ -1,0 +1,111 @@
+/* Estilos generales del modal */
+.modal {
+    display: none; /* Ocultar el modal por defecto */
+    position: fixed; /* Fijar el modal en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 80vh; /* Limitar el alto del modal al 80% de la altura de la ventana */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    justify-content: center; /* Centrar el contenido */
+    align-items: center; /* Centrar el contenido */
+    z-index: 1000; /* Asegura que el modal esté por encima de otros elementos */
+  }
+  
+  /* Contenedor del modal */
+  .modal-content {
+    background-color: white; /* Fondo blanco para el contenido */
+    padding: 20px;
+    border-radius: 12px; /* Bordes más redondeados */
+    max-width: 500px; /* Máxima anchura */
+    width: 90%; /* Ancho relativo para pantallas pequeñas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    text-align: left; /* Alineación por defecto a la izquierda para todo el contenido */
+    position: relative; /* Para posicionar el botón de cerrar */
+  }
+  
+  /* Botón para cerrar el modal */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  /* Logo centrado y más grande */
+  .modal-content img.logo {
+    width: 300px; /* Ajustar el tamaño del logo */
+    margin: 0 auto 20px; /* Centrar el logo y agregar espacio abajo */
+    display: block; /* Hacer que el logo sea un bloque para centrarlo */
+  }
+  
+  /* Títulos del modal centrados */
+  .modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center; /* Alineación centrada */
+  }
+  
+  /* Estilos para el formulario */
+  #formActualizarUsuario {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Estilo para los inputs */
+  #formActualizarUsuario input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Bordes redondeados para los inputs */
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo para los inputs al pasar el mouse */
+  #formActualizarUsuario input:focus {
+    border-color: #4CAF50; /* Color de borde al enfocar */
+    outline: none; /* Eliminar el borde azul por defecto del navegador */
+  }
+
+  /* Caja de mostrar contraseña: Mejor alineación */
+.show-password {
+  display: flex;
+  align-items: center; /* Centrar verticalmente */
+  justify-content: flex-start; /* Mantener alineado a la izquierda */
+  gap: 8px; /* Espacio entre el checkbox y el texto */
+  margin-top: 5px; /* Reducir la separación superior */
+}
+
+.show-password input[type="checkbox"] {
+  width: auto; /* Ajustar tamaño del checkbox */
+  margin: 0; /* Eliminar márgenes adicionales */
+}
+
+.show-password label {
+  font-size: 14px; /* Ajustar el tamaño del texto */
+  color: #555; /* Color neutro */
+  cursor: pointer; /* Hacer clic en el texto selecciona el checkbox */
+}
+
+  /* Botón de actualización */
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50; /* Color de fondo */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Bordes redondeados en el botón */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Cambio de color del botón al pasar el mouse */
+  button:hover {
+    background-color: #45a049;
+  }
+  

@@ -7,46 +7,38 @@ async function login() {
         return;
     }
 
-    const data = {
-        nombre_usuario,
-        contrasena,
-    };
+    const data = { nombre_usuario, contrasena };
 
     try {
         const response = await fetch('http://localhost:8092/api/login', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data),
         });
 
         if (response.ok) {
             const responseData = await response.json();
-            
-            // Verificar si el backend ha enviado un token
-            if (responseData.token) {
-                console.log("Token recibido:", responseData.token);  // Ver el token en la consola
 
-                // Guardar el token en localStorage para su uso posterior
-                localStorage.setItem('token', responseData.token);
-
-                Swal.fire("Éxito", "Login exitoso", "success");
+            if (responseData.token && responseData.usuario) {
+                // Guardar token y datos del usuario en localStorage
+                localStorage.setItem("token", responseData.token);
+                localStorage.setItem("usuario", JSON.stringify(responseData.usuario));
+             
+                Swal.fire("Éxito", "Inicio de sesión exitoso", "success");
                 setTimeout(() => {
-                    window.location = "index.html"; 
+                    console.log("Mandando al index...");
+                    window.location.href = "/index.html"; 
                 }, 2000);
             } else {
-                Swal.fire("Error", "No se recibió un token válido", "error");
+                Swal.fire("Error", "Datos de inicio de sesión inválidos.", "error");
             }
         } else {
-            // Error del servidor o usuario no encontrado
-            const errorData = await response.json(); // Leer el cuerpo de la respuesta
-            const mensajeError = errorData.mensaje || "Error desconocido"; // Fallback si no se incluye mensaje
+            const errorData = await response.json();
+            const mensajeError = errorData.mensaje || "Error desconocido";
             Swal.fire("Error", mensajeError, "error");
         }
     } catch (error) {
-        console.error(error);
-        // Error de conexión o problema en el fetch
-        Swal.fire("Error", "No se pudo conectar con el servidor. Inténtalo más tarde.", "error");
+        console.error("Error en la conexión:", error);
+        Swal.fire("Error", "No se pudo conectar con el servidor.", "error");
     }
 }
