@@ -3,5 +3,6 @@
   "server": {
     "baseDir": "./",
     "index": "landing.html"
-  }
+  },
+  "notify":false
 }
