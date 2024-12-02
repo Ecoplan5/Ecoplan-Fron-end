@@ -1,53 +1,39 @@
 document.addEventListener("DOMContentLoaded", () => {
-  cargarDatosUsuario(); // Llamar directamente a cargarDatosUsuario como función principal
+  cargarDatosUsuario(); // Carga y valida usuario
 });
 
-
 function cargarDatosUsuario() {
-
   const usuario = localStorage.getItem("usuario");
   const token = localStorage.getItem("token");
 
-  // Si no existen datos, redirige al login
   if (!usuario || !token) {
-    console.log("No se encontró usuario o token. Redirigiendo a landing...");
+    console.log("No se encontró usuario o token. Redirigiendo...");
     if (window.location.pathname !== "/landing.html") {
-      window.location.href = "landing.html"; // Redirige a la página de bienvenida
+      window.location.href = "landing.html"; // Redirige
     }
     return;
   }
 
-  // Parsear el objeto usuario desde JSON
-  const user = JSON.parse(usuario);
+    // Parsear el objeto usuario desde JSON
+    const user = JSON.parse(usuario);
 
-  // Actualizar el nombre del usuario en el DOM
-  const nombreUsuario = document.getElementById("usuario");
+    // Actualizar el nombre del usuario en el DOM
+    const nombreUsuario = document.getElementById("usuario");
+  
+    if (nombreUsuario && user.nombre_usuario) {
+      nombreUsuario.textContent = user.nombre_usuario;
+    }
+  
 
-  if (nombreUsuario && user.nombre_usuario) {
-    nombreUsuario.textContent = user.nombre_usuario;
+  // Verificar si ya estás autenticado en otras rutas
+  if (window.location.pathname === "/blog.html") {
+    console.log("Accediendo a blog.html como usuario autenticado.");
+    return; // Permite la carga de blog.html
   }
 
-  // Continuar con la lógica de redirección
-  if (window.location.pathname === "/login.html" && usuario && token) {
-    console.log("Usuario autenticado. Redirigiendo a index.html...");
-    window.location.href = "index.html";
-    return;
-  }
-
-  if (window.location.pathname === "/landing.html" || window.location.pathname === "/login.html") {
-    console.log("Usuario autenticado. Redirigiendo a index.html...");
-    window.location.href = "index.html";
-    return;
-  }
-
-  if (window.location.pathname === "/index.html") {
-    console.log("Ya estás en index.html.");
-    return;
-  }
-
-  console.log("Usuario validado correctamente. Redirigiendo a index.html...");
-  window.location.href = "index.html";
+  console.log("Usuario autenticado correctamente.");
 }
+
 
 
 /**
@@ -76,21 +62,27 @@ function cerrarModal() {
   modal.style.display = "none";
 }
 // Cambiar la visibilidad de las contraseñas en el formulario
-document.getElementById("verYocultarContrasena").addEventListener("change", function () {
-  const passwordInputs = document.querySelectorAll('input[type="password"], input[type="text"]');
+document.addEventListener("DOMContentLoaded", () => {
+  const togglePasswordVisibility = document.getElementById("verYocultarContrasena");
 
-  passwordInputs.forEach((input) => {
-    // Cambia el tipo según el estado del checkbox
-    input.type = this.checked ? "text" : "password";
-  });
+  if (togglePasswordVisibility) {
+    togglePasswordVisibility.addEventListener("change", function () {
+      const passwordInputs = document.querySelectorAll('input[type="password"], input[type="text"]');
+      passwordInputs.forEach((input) => {
+        input.type = this.checked ? "text" : "password";
+      });
+    });
+  } else {
+    console.warn("El elemento con ID 'verYocultarContrasena' no existe en el DOM.");
+  }
 });
+
 
 
 // Array con los nombres de las imágenes
 
 // Array con los nombres de las imágenes
 const avatars = [
-  "monster flat-02 (1).svg",
   "monster flat-02.svg",
   "monster flat-03.svg",
   "monster flat-04.svg",
@@ -169,12 +161,19 @@ function setProfileImage(imageUrl) {
 
 // Función para cargar la imagen de perfil guardada en localStorage
 function cargarImagenDePerfil() {
-  const savedImage = localStorage.getItem('profileImage');
+  const savedImage = localStorage.getItem("profileImage");
   if (savedImage) {
     const profileImage = document.querySelector('.avatar-container img');
-    profileImage.src = savedImage; // Establecer la imagen guardada
+    if (profileImage) {
+      profileImage.src = savedImage; // Establecer la imagen guardada
+    } else {
+      console.warn("El elemento '.avatar-container img' no existe en el DOM.");
+    }
+  } else {
+    console.log("No se encontró ninguna imagen guardada en localStorage.");
   }
 }
+
 
 // Llamar a la función cuando el documento se cargue
 document.addEventListener("DOMContentLoaded", cargarImagenDePerfil);
