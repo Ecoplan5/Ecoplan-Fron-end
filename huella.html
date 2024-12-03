@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encuesta Condicional</title>
+    <link rel="stylesheet" href="src/css/stilosHuella.css">
+  </head>
+  <body>
+    <div class="carousel">
+      <form id="survey-form">
+        <!-- Pregunta 1 -->
+        <div class="carousel-question active" id="question-1">
+          <label>¿Posees vehículo particular?</label><br />
+          <div class="radio-group">
+            <input type="radio" name="vehicle" value="1" id="vehicle-yes" /> Sí
+            <input type="radio" name="vehicle" value="0" id="vehicle-no" /> No
+          </div>
+        </div>
+
+        <!-- Pregunta 2 -->
+        <div class="carousel-question" id="question-2">
+          <label>¿Qué tipo de vehículo?</label><br />
+          <input type="radio" name="vehicleType" value="2" id="vehicleType-moto" /> Moto
+          <input type="radio" name="vehicleType" value="3" id="vehicleType-carro" /> Carro
+        </div>
+
+        <!-- Pregunta 3 -->
+        <div class="carousel-question" id="question-3">
+          <label>¿Cuál es el km aproximado al día?</label><br />
+          <input type="number" name="vehicleKm" min="0" id="km_diario" />
+        </div>
+
+        <!-- Pregunta 4 -->
+        <div class="carousel-question" id="question-4">
+          <label>¿Utilizas transporte público?</label><br />
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="publicTransport"
+              value="1"
+              id="publicTransport-yes"
+            />
+            Sí
+            <input
+              type="radio"
+              name="publicTransport"
+              value="0"
+              id="publicTransport-no"
+            />
+            No
+          </div>
+        </div>
+
+        <!-- Pregunta 5 -->
+        <div class="carousel-question" id="question-5">
+          <label>¿Cuál de los siguientes medios de transporte usas?</label><br />
+          <input type="radio" name="transportType" value="1" id="medio_transporte_bus" /> Bus
+          <input type="radio" name="transportType" value="2" id="medio_transporte_metro" /> Metro
+        </div>
+
+        <!-- Pregunta 6 -->
+        <div class="carousel-question" id="question-6">
+          <label>¿Cuál es el km aproximado al día?</label><br />
+          <input type="number" name="publicTransportKm" min="0" id="km_transporte" />
+        </div>
+
+        <!-- Pregunta 7 -->
+        <div class="carousel-question" id="question-7">
+          <label>¿Ha realizado viajes en avión durante el último año?</label><br />
+          <div class="radio-group">
+            <input
+              type="radio"
+              name="airplaneTrip"
+              value="1"
+              id="viajes_avion_yes"
+            />
+            Sí
+            <input
+              type="radio"
+              name="airplaneTrip"
+              value="0"
+              id="viajes_avion_no"
+            />
+            No
+          </div>
+        </div>
+
+        <!-- Pregunta 8 -->
+        <div class="carousel-question" id="question-8">
+          <label>¿A dónde ha ido?</label><br />
+          <input type="text" name="destination" id="destination" />
+        </div>
+
+        <!-- Pregunta 9 -->
+        <div class="carousel-question" id="question-9">
+          <label
+            >¿Cuál es el consumo de electricidad que aparece en la factura de
+            servicios públicos?</label
+          ><br />
+          <input type="number" name="electricityConsumption" id="consumo_electricidad" />
+        </div>
+
+        <!-- Pregunta 10 -->
+        <div class="carousel-question" id="question-10">
+          <label>¿Qué tipo de gas utiliza?</label><br />
+          <select name="gasType" id="tipo_gas">
+            <option value="1">Natural</option>
+            <option value="2">Pipeta</option>
+            <option value="3">No utilizo Gas</option>
+          </select>
+        </div>
+
+        <!-- Pregunta 11 -->
+        <div class="carousel-question" id="question-11">
+          <label>¿Cuánto factura de acueducto (m3)?</label><br />
+          <input type="number" name="waterConsumption" id="consumo_agua" />
+        </div>
+
+        <!-- Pregunta 12 -->
+        <div class="carousel-question" id="question-12">
+          <label>¿Cuántas personas viven en tu casa? (incluyéndote)</label><br />
+          <input type="number" name="householdMembers" id="num_personas" />
+        </div>
+
+        <!-- Pregunta 13 -->
+        <div class="carousel-question" id="question-13">
+          <label>¿Reciclas?</label><br />
+          <div class="radio-group">
+            <input type="radio" name="recycling" value="1" id="reciclas_yes" /> Sí
+            <input type="radio" name="recycling" value="0" id="reciclas_no" /> No
+          </div>
+        </div>
+
+        <!-- Pregunta 14 -->
+        <div class="carousel-question" id="question-14">
+          <label
+            >¿Qué cantidad de correos hay actualmente en tu bandeja de
+            entrada?</label
+          ><br />
+          <input type="number" name="emailsInInbox" id="correos_bandeja" />
+        </div>
+
+        <div class="button-container">
+          <button type="button" id="prevBtn" disabled>
+            <span class="arrow">&#8592;</span> Anterior
+          </button>
+          <br />
+          <button type="button" id="nextBtn" disabled>Siguiente</button>
+        </div>
+
+        <!-- Botón para enviar los datos capturados -->
+        <div
+          class="button-container"
+          id="calculateContainer"
+          style="display: none"
+        >
+          <button type="submit" id="calculateBtn">Calcular</button>
+        </div>
+      </form>
+    </div>
+
+  </body>
+  <script src="/src/js/huellaCarbono.js"></script>
+</html>
