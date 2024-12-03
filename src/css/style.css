@@ -42,8 +42,14 @@
   border: 2px solid #1b5e20;
   background-color: #1b5e20;
   color: #fff;
-  padding: 10px 40px 10px 40px;
+  padding: 10px 20px; /* Espaciado interno */
+  display: inline-block; /* Asegura un comportamiento de botón adecuado */
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  font-size: 16px; /* Tamaño de fuente claro y legible */
+  text-align: center; /* Centra el texto */
 }
+
+
 .btn_ses:hover{
   border: 2px solid #248c2b;
   background-color: #248c2b;
