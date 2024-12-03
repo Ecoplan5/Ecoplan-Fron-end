@@ -168,6 +168,9 @@ padding-top: 50px;
   margin-right: 0;  /* Asegura que no haya espacio extra en el lado derecho */
   cursor: pointer; /* Añadir cursor pointer para indicar que es clickeable */
 }
+.pointer{
+  cursor: pointer!important;
+}
 
 .circle {
   width: 40px;
