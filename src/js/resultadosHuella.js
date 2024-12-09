@@ -355,6 +355,8 @@ const displayDetails = () => {
 //         }
 //     });
 // };
+
+
 const createCharts = () => {
     if (!data.huellas || data.huellas.length === 0) {
         console.error('No hay datos de huellas disponibles');

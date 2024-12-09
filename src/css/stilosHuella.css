@@ -1,7 +1,10 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #89968f;
+  background-image: url('../image/hojas.jpg');
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+  background-position: center; /* Centra la imagen en el contenedor */
   margin: 0;
   padding: 0;
   display: flex;
@@ -40,6 +43,11 @@ body {
   gap: 40px;
   margin-top: 30px;
 }
+.btn_form{
+  margin-left: -40px;
+  width: 120px;
+}
+
 .button-container button {
   padding: 10px 20px;
   font-size: 16px;
