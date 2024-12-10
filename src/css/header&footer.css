@@ -49,10 +49,16 @@
     font-weight: bold;
   }
   .list-unstyled{
-    text-align: end!important;
+    text-align: start!important;
+    position: relative;
+    left: 78%;
   }
-  .footer-description {
-    font-size: 1rem;
+  @media (max-width: 767px){
+    .list-unstyled{
+      left: 0%;
+      text-align: start!important;
+    }
+
   }
   
   .newsletter-form .input-group {

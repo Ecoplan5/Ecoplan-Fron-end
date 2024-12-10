@@ -4,17 +4,17 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Carga los datos del usuario y verifica si está autenticado
-function cargarDatosUsuario() {
-    const usuario = localStorage.getItem("usuario");
-    const token = localStorage.getItem("token");
+// function cargarDatosUsuario() {
+//     const usuario = localStorage.getItem("usuario");
+//     const token = localStorage.getItem("token");
 
-    if (!usuario || !token) {
-        console.log("No se encontró usuario o token. Redirigiendo...");
-        if (window.location.pathname !== "/landing.html") {
-            window.location.href = "landing.html"; // Redirige al login si no está autenticado
-        }
-        return;
-    }
+//     if (!usuario || !token) {
+//         console.log("No se encontró usuario o token. Redirigiendo...");
+//         if (window.location.pathname !== "/landing.html") {
+//             window.location.href = "landing.html"; // Redirige al login si no está autenticado
+//         }
+//         return;
+//     }
 
     // Parsear el objeto usuario desde JSON
     const user = JSON.parse(usuario);
@@ -28,7 +28,6 @@ function cargarDatosUsuario() {
 
     console.log("Usuario autenticado correctamente.");
     // Aquí ya no llamamos a calcularHuella(user.userId)
-}
 
 async function calcularHuella(userId) {
     // Ahora que tenemos el ID del usuario como parámetro, podemos proceder con el flujo de preguntas
