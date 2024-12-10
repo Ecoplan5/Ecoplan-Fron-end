@@ -1,3 +1,15 @@
+.header {
+  position: fixed !important; /* Mantenerla fija */
+  top: 0; /* Anclarla a la parte superior */
+  width: 100%; /* Extenderla a todo el ancho */
+  z-index: 1030; /* Asegurarte de que esté encima de otros elementos */
+  background-color: #ffffff; /* Fondo para visibilidad */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+}
+
+
+
+
 .about-section {
   background-color: #ffffff; /* Fondo suave para la sección */
   margin-top: 50px;

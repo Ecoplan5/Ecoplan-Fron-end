@@ -27,16 +27,7 @@ body {
     background-repeat: no-repeat;
 }
 
-.login-container {
-    flex: 1; /* Ocupa menos espacio */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff; /* Fondo blanco */
-    padding: 20px;
-    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
-}
+z
 
 .login-container .input-group {
     width: 80%;

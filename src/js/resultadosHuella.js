@@ -128,7 +128,7 @@ const displayDetails = () => {
             titulo: 'Electricidad',
             descripcion: resultadoHuella.electricidad.descripcion,
             emision_por_km: resultadoHuella.electricidad.emision_por_kWh,
-            emisionTotal: resultadoHuella.electricidad.emision_total,
+            emisionTotal: Math.round (resultadoHuella.electricidad.emision_total),
             ecoConsejo: resultadoHuella.electricidad.ecoConsejo,
             ecodesafios: resultadoHuella.electricidad.ecoDesafios,
             accionesSugeridas: Array.isArray(resultadoHuella.electricidad.acciones_sugeridas) ? resultadoHuella.electricidad.acciones_sugeridas : [], // Manejar datos no encontrados
@@ -185,8 +185,8 @@ const displayDetails = () => {
                     <tr>
                         <td>${cat.titulo}</td>
                         <td>${cat.descripcion}</td>
-                        <td>${cat.emisionTotal}</td>
                         <td>${cat.emision_por_km}</td>
+                        <td>${cat.emisionTotal}</td>
                         <td>${Array.isArray(cat.accionesSugeridas) ? cat.accionesSugeridas.join(', ') : ''}</td>
                         <td>${cat.ecoConsejo}</td>
                         <td>${cat.ecodesafios}</td> <!-- Mostrar los desafíos aquí -->
@@ -200,161 +200,7 @@ const displayDetails = () => {
     detailsContainer.innerHTML = `<h3>Detalles de la Huella de Carbono</h3>${html}`;
 };
 
-// // Función para crear gráficos
-// const createCharts = () => {
-//     if (!data.huellas || data.huellas.length === 0) {
-//         console.error('No hay datos de huellas disponibles');
-//         return;
-//     }
 
-//     const huella = data.huellas[0];
-//     const resultadoHuella = huella.resultado_huella?.resultado_huella;
-
-//     if (!resultadoHuella) {
-//         console.error('Resultado de huella no encontrado');
-//         return;
-//     }
-
-//     const vehiculoEmisionTotal = Math.round(resultadoHuella.vehiculo?.emision_total || 0);
-//     const transportePublicoEmisionTotal = Math.round(resultadoHuella.transporte_publico?.emision_total || 0);
-//     const resumen = Math.round(resultadoHuella.agua?.emision_total || 0);
-//     const electricidadEmisionTotal = Math.round(resultadoHuella.electricidad?.emision_total || 0);
-//     const aguaEmisionTotal = Math.round(resultadoHuella.agua?.emision_total || 0);
-//     const totalEmisiones = vehiculoEmisionTotal + transportePublicoEmisionTotal + resumen + electricidadEmisionTotal + aguaEmisionTotal;
-
-//     // Datos en porcentaje
-//     const dataPorcentajes = [
-//         (vehiculoEmisionTotal / totalEmisiones) * 100,
-//         (transportePublicoEmisionTotal / totalEmisiones) * 100,
-//         (resumen / totalEmisiones) * 100,
-//         (electricidadEmisionTotal / totalEmisiones) * 100,
-//         (aguaEmisionTotal / totalEmisiones) * 100
-//     ];
-
-//     const labels = ['Vehículo', 'Transporte Público', 'resumen Total', 'Electricidad', 'aAgua'];
-//     const colors = ['#4bc0c0', '#99990f', '#ff9f40', '#1b16a9', '#9b36a9'];
-
-//     // Gráfico de Vehículo
-//     new Chart(Vehículo, {
-//         type: 'doughnut',
-//         data: {
-//             labels: ['Vehículo'],
-//             datasets: [{
-//                 data: [(vehiculoEmisionTotal / totalEmisiones) * 100],
-//                 backgroundColor: ['#4bc0c0']
-//             }]
-//         },
-//         options: {
-//             plugins: {
-//                 tooltip: {
-//                     callbacks: {
-//                         label: function (context) {
-//                             const label = context.label || '';
-//                             const value = context.raw || 0;
-//                             return `${label}: ${value.toFixed(2)}%`;
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     });
-
-//     new Chart(ctxTransportePublico, {
-//         type: 'doughnut',
-//         data: {
-//             labels: ['Transporte Público'],
-//             datasets: [{
-//                 data: [(transportePublicoEmisionTotal / totalEmisiones) * 100],
-//                 backgroundColor: ['#99990f']
-//             }]
-//         },
-//         options: {
-//             plugins: {
-//                 tooltip: {
-//                     callbacks: {
-//                         label: function (context) {
-//                             const label = context.label || '';
-//                             const value = context.raw || 0;
-//                             return `${label}: ${value.toFixed(2)}%`;
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     });
-
-//     new Chart(ctxTotal, {
-//         type: 'doughnut',
-//         data: {
-//             labels,
-//             datasets: [{
-//                 data: dataPorcentajes,
-//                 backgroundColor: colors
-//             }]
-//         },
-//         options: {
-//             plugins: {
-//                 tooltip: {
-//                     callbacks: {
-//                         label: function (context) {
-//                             const label = context.label || '';
-//                             const value = context.raw || 0;
-//                             return `${label}: ${value.toFixed(2)}%`;
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     });
-
-//     new Chart(ctxElectricidad, {
-//         type: 'doughnut',
-//         data: {
-//             labels: ['Electricidad'],
-//             datasets: [{
-//                 data: [(electricidadEmisionTotal / totalEmisiones) * 100],
-//                 backgroundColor: ['#ff9f40']
-//             }]
-//         },
-//         options: {
-//             plugins: {
-//                 tooltip: {
-//                     callbacks: {
-//                         label: function (context) {
-//                             const label = context.label || '';
-//                             const value = context.raw || 0;
-//                             return `${label}: ${value.toFixed(2)}%`;
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     });
-
-//     new Chart(Agua, {
-//         type: 'doughnut',
-//         data: {
-//             labels: ['Agua'],
-//             datasets: [{
-//                 data: [(aguaEmisionTotal / totalEmisiones) * 100],
-//                 backgroundColor: ['#9b36a9']
-//             }]
-//         },
-//         options: {
-//             plugins: {
-//                 tooltip: {
-//                     callbacks: {
-//                         label: function (context) {
-//                             const label = context.label || '';
-//                             const value = context.raw || 0;
-//                             return `${label}: ${value.toFixed(2)}%`;
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     });
-// };
 
 
 const createCharts = () => {
@@ -378,7 +224,7 @@ const createCharts = () => {
     const aguaEmisionTotal = Math.round(resultadoHuella.agua?.emision_total || 0);
     const totalEmisiones = vehiculoEmisionTotal + transportePublicoEmisionTotal + resumen + electricidadEmisionTotal + aguaEmisionTotal;
 
-    // Datos en porcentaje
+    // Datos en porcentaje (calculados una sola vez)
     const dataPorcentajes = [
         (vehiculoEmisionTotal / totalEmisiones) * 100,
         (transportePublicoEmisionTotal / totalEmisiones) * 100,
@@ -387,58 +233,44 @@ const createCharts = () => {
         (aguaEmisionTotal / totalEmisiones) * 100
     ];
 
-    const labels = ['Vehículo', 'Transporte Público', 'resumen Total', 'Electricidad', 'Agua'];
+    const labels = ['Vehículo', 'Transporte Público', 'Resumen Total', 'Electricidad', 'Agua'];
     const colors = ['#4bc0c0', '#99990f', '#ff9f40', '#1b16a9', '#9b36a9'];
 
-    // Gráfico de Vehículo
-    new Chart(Vehículo, {
-        type: 'doughnut',
-        data: {
-            labels: ['Vehículo'],
-            datasets: [{
-                data: [(vehiculoEmisionTotal / totalEmisiones) * 100],
-                backgroundColor: ['#4bc0c0']
-            }]
-        },
-        options: {
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        label: function (context) {
-                            const label = context.label || '';
-                            const value = context.raw || 0;
-                            return `${label}: ${value.toFixed(2)}%`;
+    // Gráficos individuales y general
+    const datasets = [
+        { ctx: Vehículo, label: 'Vehículo', index: 0, color: '#4bc0c0' },
+        { ctx: ctxTransportePublico, label: 'Transporte Público', index: 1, color: '#99990f' },
+        { ctx: ctxElectricidad, label: 'Electricidad', index: 3, color: '#1b16a9' },
+        { ctx: Agua, label: 'Agua', index: 4, color: '#9b36a9' },
+    ];
+
+    datasets.forEach(dataset => {
+        new Chart(dataset.ctx, {
+            type: 'doughnut',
+            data: {
+                labels: [dataset.label],
+                datasets: [{
+                    data: [dataPorcentajes[dataset.index], 100 - dataPorcentajes[dataset.index]],
+                    backgroundColor: [dataset.color, '#e0e0e0'] // Color secundario para el resto
+                }]
+            },
+            options: {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                const label = context.label || '';
+                                const value = context.raw || 0;
+                                return `${label}: ${value.toFixed(2)}%`;
+                            }
                         }
                     }
                 }
             }
-        }
+        });
     });
 
-    new Chart(ctxTransportePublico, {
-        type: 'doughnut',
-        data: {
-            labels: ['Transporte Público'],
-            datasets: [{
-                data: [(transportePublicoEmisionTotal / totalEmisiones) * 100],
-                backgroundColor: ['#99990f']
-            }]
-        },
-        options: {
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        label: function (context) {
-                            const label = context.label || '';
-                            const value = context.raw || 0;
-                            return `${label}: ${value.toFixed(2)}%`;
-                        }
-                    }
-                }
-            }
-        }
-    });
-
+    // Gráfico general
     new Chart(ctxTotal, {
         type: 'doughnut',
         data: {
@@ -462,55 +294,8 @@ const createCharts = () => {
             }
         }
     });
-
-    new Chart(ctxElectricidad, {
-        type: 'doughnut',
-        data: {
-            labels: ['Electricidad'],
-            datasets: [{
-                data: [(electricidadEmisionTotal / totalEmisiones) * 100],
-                backgroundColor: ['#ff9f40']
-            }]
-        },
-        options: {
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        label: function (context) {
-                            const label = context.label || '';
-                            const value = context.raw || 0;
-                            return `${label}: ${value.toFixed(2)}%`;
-                        }
-                    }
-                }
-            }
-        }
-    });
-
-    new Chart(Agua, {
-        type: 'doughnut',
-        data: {
-            labels: ['Agua'],
-            datasets: [{
-                data: [(aguaEmisionTotal / totalEmisiones) * 100],
-                backgroundColor: ['#9b36a9']
-            }]
-        },
-        options: {
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        label: function (context) {
-                            const label = context.label || '';
-                            const value = context.raw || 0;
-                            return `${label}: ${value.toFixed(2)}%`;
-                        }
-                    }
-                }
-            }
-        }
-    });
 };
+
 
 
 
