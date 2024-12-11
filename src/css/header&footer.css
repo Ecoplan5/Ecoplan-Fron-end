@@ -127,7 +127,7 @@
   color:  rgb(9, 70, 25);
 }
 .carousel-item a img{ 
-    height: 450px;            
+    height: 550px;            
     width: 1920px;               
     object-fit: cover;     
     object-position: center; 

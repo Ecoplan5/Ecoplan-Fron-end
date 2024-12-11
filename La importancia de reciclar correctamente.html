@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil de Usuario</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="src/css/stylosHome.css">
+  <link rel="stylesheet" href="src/css/header&footer.css">
+  <link rel="shortcut icon" href="src/image/favicon-11.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="src/css/styleblog.css">
+  <style>
+    body {
+      font-family: montserrat, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+  
+    .container {
+      max-width: 1200px;
+    }
+  
+    .blog-article {
+      background: #ffffff;
+      padding: 50px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  
+    .blog-article header {
+      margin-bottom: 20px;
+    }
+  
+    .blog-article .meta-info {
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+  
+    .article-image {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+  
+    .blog-sidebar {
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  
+    .blog-sidebar h2 {
+      margin-bottom: 20px;
+    }
+  
+    .recent-post {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+  
+    .recent-thumb {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      margin-right: 15px;
+      object-fit: cover;
+    }
+  
+    .recent-post a {
+      font-size: 1rem;
+      color: #007bff;
+      text-decoration: none;
+    }
+  
+    .recent-post a:hover {
+      text-decoration: underline;
+      color: #0056b3;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header class="header container-fluid navbar navbar-expand-lg">
+    <div class="container-lg">
+      <img class="logo navbar-brand" src="src/image/logo.png" alt="Logo">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#Ecoplan">Qué es Ecoplan</a></li>
+          <li class="nav-item"><a class="nav-link" href="Retos.html">Retos</a></li>
+          <a class="nav-link" href="/huella.html">Calcula tu huella</a>
+          <a class="nav-link" href="/blog.html">Toma conciencia</a>
+          <li class="nav-item dropdown">
+            <div class="avatar-container" onclick="toggleDropdown()">
+              <div class="circle">
+                <img src="src/image/planeta1.jpg" alt="Avatar">
+              </div>
+              <div class="username" id="usuario" style="margin-left: 10px;"></div>
+            </div>
+            <ul class="dropdown-menu" id="dropdownMenu">
+              <li class="pointer" onclick="updateContactInfo()"><i class="fas fa-user-edit"></i> Actualizar Perfil</li>
+              <li class="pointer" onclick="uploadImage()"><i class="fas fa-upload"></i> Cargar imagen</li>
+              <li class="pointer logout" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  
+<!-- Contenedor para la selección de avatares -->
+<div id="avatarSelectionContainer" style="display: none;" class="avatar-container1">
+  <!-- Botón de cerrar (X) -->
+  <button class="close-modal" onclick="closeModal()">×</button>
+  
+  <h2 class="title">Selecciona tu avatar</h2>
+  
+  <!-- Grid de avatares -->
+  <div id="avatarsList" class="avatars-grid"></div>
+</div>
+
+
+<!-- Estructura de blog estilo referencia -->
+<main>
+    <div class="container">
+      <div class="row">
+        <!-- Columna principal: Artículo -->
+        <div class="col-lg-12 blog-article">
+          <article>
+            <header><br><br><br>
+              <h1>La importancia de reciclar correctamente</h1>
+              <div class="meta-info">
+                <span>Por Ecoplan</span> | <span>10 de diciembre de 2024</span> | <span>Lectura: 3 min</span>
+              </div>
+            </header>
+            <section>
+              <img src="src/image/Reciclar.jpg" alt="Imagen del artículo" class="article-image">
+              <p>Reciclar es un acto esencial para proteger nuestro medio ambiente y reducir el impacto de los residuos en el planeta. Sin embargo, es igual de importante hacerlo correctamente para maximizar sus beneficios y evitar contaminar los materiales reciclables.</p>
+  
+              <h2>Beneficios de reciclar correctamente</h2>
+              <ul>
+                <li>Reducción de residuos: Separar adecuadamente los materiales reciclables evita que terminen en vertederos o incineradoras.</li>
+                <li>Conservación de recursos naturales: El reciclaje permite reutilizar materiales como papel, vidrio y metales, reduciendo la necesidad de extraer materias primas.</li>
+                <li>Ahorro de energía: Producir nuevos productos a partir de materiales reciclados consume menos energía que hacerlo desde cero.</li>
+                <li>Menor contaminación: Al reciclar correctamente, se evita la emisión de sustancias tóxicas generadas por residuos mal manejados.</li>
+              </ul>
+            </section>
+  
+            <section>
+              <h2>Tipos de materiales y cómo reciclarlos</h2>
+  
+              <article>
+                <h3>1. Papel y cartón</h3>
+                <p>El papel y cartón deben estar limpios y secos para ser reciclados. No se deben incluir materiales contaminados con alimentos o aceites.</p>
+                <ul>
+                  <li><strong>Ejemplos:</strong> Periódicos, cajas de cereales, hojas de papel.</li>
+                  <li><strong>Consideraciones:</strong> Retira grapas, cintas adhesivas y otros elementos no reciclables.</li>
+                </ul>
+              </article>
+  
+              <article>
+                <h3>2. Plásticos</h3>
+                <p>Los plásticos reciclables suelen estar marcados con códigos numéricos. Identifica cuáles son aceptados en tu localidad.</p>
+                <ul>
+                  <li><strong>Ejemplos:</strong> Botellas de agua, envases de yogur, bolsas de supermercado.</li>
+                  <li><strong>Consideraciones:</strong> Enjuaga los envases para evitar contaminaciones cruzadas.</li>
+                </ul>
+              </article>
+  
+              <article>
+                <h3>3. Vidrio</h3>
+                <p>El vidrio es un material 100% reciclable que puede ser reutilizado infinitamente sin perder calidad.</p>
+                <ul>
+                  <li><strong>Ejemplos:</strong> Botellas de bebidas, frascos de alimentos.</li>
+                  <li><strong>Consideraciones:</strong> Separa por colores si es requerido en tu área.</li>
+                </ul>
+              </article>
+  
+              <article>
+                <h3>4. Metales</h3>
+                <p>Las latas de aluminio y otros metales son altamente reciclables y generan ingresos económicos en muchos sistemas de reciclaje.</p>
+                <ul>
+                  <li><strong>Ejemplos:</strong> Latas de refrescos, envases de aluminio.</li>
+                  <li><strong>Consideraciones:</strong> Compacta las latas para optimizar el espacio en los contenedores.</li>
+                </ul>
+              </article>
+            </section>
+  
+            <section>
+              <h2>Pasos para reciclar correctamente</h2>
+              <ol>
+                <li><strong>Infórmate sobre las normas locales:</strong> Cada región tiene requisitos específicos sobre qué materiales son reciclables y cómo deben ser clasificados.</li>
+                <li><strong>Clasifica los residuos:</strong> Separa papel, plástico, vidrio y metales en contenedores diferentes.</li>
+                <li><strong>Reduce y reutiliza:</strong> Antes de reciclar, busca maneras de reducir tu consumo y reutilizar objetos.</li>
+                <li><strong>Evita la contaminación:</strong> Limpia los materiales reciclables y no mezcles desechos orgánicos con reciclables.</li>
+                <li><strong>Promueve el reciclaje:</strong> Enseña a tu familia y comunidad sobre la importancia de reciclar correctamente.</li>
+              </ol>
+            </section>
+  
+            <section>
+              <h2>Casos prácticos y ejemplos de éxito</h2>
+              <ul>
+                <li>En <strong>Alemania</strong>, el sistema de separación y reciclaje ha logrado reducir los desechos en vertederos en un 90%.</li>
+                <li>En <strong>Japón</strong>, la estricta clasificación de residuos permite que más del 80% de los materiales reciclables se procesen adecuadamente.</li>
+              </ul>
+            </section>
+  
+            <section>
+              <h2>El futuro del reciclaje</h2>
+              <p>Con tecnologías avanzadas y una mayor concienciación, el reciclaje será aún más eficiente. La economía circular, que prioriza el reciclaje y la reutilización, está transformando la manera en que gestionamos los recursos.</p>
+            </section>
+  
+            <footer>
+              <h2>Conclusión</h2>
+              <p>Reciclar correctamente es una responsabilidad de todos. Con pequeños cambios en nuestros hábitos, podemos generar un gran impacto en la salud del planeta.</p>
+              <p><strong>¿Estás listo para marcar la diferencia?</strong> ¡Empieza hoy mismo y sé parte del cambio hacia un futuro más sostenible!</p>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+</body>
+<script src="src/js/home.js"></script>
+<script src="src/js/blog.js"></script>
+
+
+</html>
