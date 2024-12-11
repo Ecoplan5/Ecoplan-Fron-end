@@ -1,18 +1,18 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//   cargarDatosUsuario(); // Carga y valida usuario
-// });
+document.addEventListener("DOMContentLoaded", () => {
+  cargarDatosUsuario(); // Carga y valida usuario
+});
 
-// function cargarDatosUsuario() {
-//   const usuario = localStorage.getItem("usuario");
-//   const token = localStorage.getItem("token");
+function cargarDatosUsuario() {
+  const usuario = localStorage.getItem("usuario");
+  const token = localStorage.getItem("token");
 
-//   if (!usuario || !token) {
-//     console.log("No se encontró usuario o token. Redirigiendo...");
-//     if (window.location.pathname !== "/landing.html") {
-//       window.location.href = "landing.html"; // Redirige
-//     }
-//     return;
-//   }
+  if (!usuario || !token) {
+    console.log("No se encontró usuario o token. Redirigiendo...");
+    if (window.location.pathname !== "/landing.html") {
+      window.location.href = "landing.html"; // Redirige
+    }
+    return;
+  }
 
     // Parsear el objeto usuario desde JSON
     const user = JSON.parse(usuario);
@@ -32,6 +32,9 @@
   }
 
   console.log("Usuario autenticado correctamente.");
+}
+
+
 
 /**
  * Función para mostrar el modal y cargar los datos del usuario

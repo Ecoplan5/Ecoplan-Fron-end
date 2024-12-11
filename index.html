@@ -26,8 +26,8 @@
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#Ecoplan">Qué es Ecoplan</a></li>
           <li class="nav-item"><a class="nav-link" href="Retos.html">Retos</a></li>
-          <a class="nav-link" href="/huella.html">Calcula tu huella</a>
-          <a class="nav-link" href="/blog.html">Toma conciencia</a>
+          <li class="nav-item"><a class="nav-link" href="/huella.html">Calcula tu huella</a></li>
+          <li class="nav-item"><a class="nav-link" href="/blog.html">Toma conciencia</a></li>
           <li class="nav-item dropdown">
             <div class="avatar-container" onclick="toggleDropdown()">
               <div class="circle">
@@ -45,17 +45,13 @@
       </div>
     </div>
   </header>
-  
-<!-- Contenedor para la selección de avatares -->
-<div id="avatarSelectionContainer" style="display: none;" class="avatar-container1">
-  <!-- Botón de cerrar (X) -->
-  <button class="close-modal" onclick="closeModal()">×</button>
-  
-  <h2 class="title">Selecciona tu avatar</h2>
-  
-  <!-- Grid de avatares -->
-  <div id="avatarsList" class="avatars-grid"></div>
-</div>
+
+  <!-- Contenedor para la selección de avatares -->
+  <div id="avatarSelectionContainer" style="display: none;" class="avatar-container1">
+    <button class="close-modal" onclick="closeModal()">×</button>
+    <h2 class="title">Selecciona tu avatar</h2>
+    <div id="avatarsList" class="avatars-grid"></div>
+  </div>
 
 
 
@@ -339,43 +335,28 @@
     </div>
   </footer>
 
-    <!-- Modal de Actualizar Contacto -->
-    <div id="modalActualizarContacto" class="modal" style="display: none">
-      <div class="modal-content">
-        <span class="close" onclick="cerrarModal()">&times;</span>
-        <img class="logo1" src="src/image/logo.png" alt="Logo" />
-        
 
-        <h2>Actualizar Perfil</h2>
-        <form id="formActualizarUsuario">
-          <div>
-            <label for="nombre_usuario">Nombre de Usuario:</label>
-            <input type="email" id="nombre_usuario" name="nombre_usuario" />
-          </div>
-          <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" />
-          </div>
-          <div>
-            <label for="contrasena">Nueva contraseña:</label>
-            <input type="password" id="contrasena" name="contrasena" />
-          </div>
-          <div>
-            <label for="contrasena">Confirmar contraseña:</label>
-            <input type="password" id="contrasena" name="contrasena" />
-          </div>
+  <div id="modalActualizarContacto" style="display: none;" class="modal-container">
+    <img class="logo1" src="src/image/logo.png" alt="Logo" />
 
-          <!-- Mostrar contraseña -->
-          <div class="show-password">
-            <input type="checkbox" id="verYocultarContrasena" />
-            <label for="verYocultarContrasena"> Ver Contraseña</label>
-          </div>
-          <button type="button" onclick="actualizarUsuario()">
-            Actualizar
-          </button>
-        </form>
-      </div>
+    <div class="modal-content">
+      <h2>Actualizar Información</h2>
+      <form id="formActualizarUsuario">
+        <label for="nombre_usuario">Nombre:</label>
+        <input type="text" id="nombre_usuario" name="nombre_usuario" placeholder="Nombre de usuario">
+        <label for="email">Correo:</label>
+        <input type="email" id="email" name="email" placeholder="Correo electrónico">
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="contrasena" placeholder="Nueva contraseña">
+        <div>
+          <input type="checkbox" id="verYocultarContrasena"> Mostrar contraseña
+        </div>
+        <button type="button" onclick="actualizarUsuario()">Guardar cambios</button>
+        <button type="button" onclick="cerrarModal()">Cancelar</button>
+      </form>
     </div>
+  </div>
+  
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 

@@ -38,72 +38,7 @@ const getHuellas = async () => {
     }
 };
 
-document.addEventListener('DOMContentLoaded', function () {
-    const ecodesafios = {
-        'transporte': {
-            'positivo': 'animations/fantasma.mp4',
-            'negativo': 'animations/negative.mp4'
-        },
-        'electricidad': {
-            'positivo': 'animations/positive.mp4',
-            'negativo': 'animations/negative.mp4'
-        },
-        'agua': {
-            'positivo': 'animations/positive.mp4',
-            'negativo': 'animations/negative.mp4'
-        },
-        'vehiculo': {
-            'positivo': 'animations/positive.mp4',
-            'negativo': 'animations/negative.mp4'
-        },
-        'general': {
-            'positivo': 'animations/positive.mp4',
-            'negativo': 'animations/negative.mp4'
-        }
-    };
 
-    function loadAnimation(container, animationPath) {
-        const isVideo = animationPath.endsWith('.mp4') || animationPath.endsWith('.webm');
-
-        if (isVideo) {
-            console.log('Cargando video desde:', animationPath); // Muestra la ruta del archivo de video
-
-            const videoElement = document.createElement('video');
-            videoElement.src = animationPath;
-            videoElement.loop = true;
-            videoElement.autoplay = true;
-            videoElement.controls = true; // optional for a video element
-            container.appendChild(videoElement);
-        } else {
-            console.log('Cargando animación Lottie desde:', animationPath); // Muestra la ruta del archivo JSON
-
-            lottie.loadAnimation({
-                container: container,
-                renderer: 'svg',
-                loop: true,
-                autoplay: true,
-                path: animationPath
-            });
-        }
-    }
-
-    const detalleContainer = document.getElementById('detallesHuellas');
-    const results = detalleContainer.querySelectorAll('.ecodesafio');
-
-    results.forEach(result => {
-        const ecodesafio = result.getAttribute('data-ecodesafio');
-        const esPositivo = result.classList.contains('positivo');
-        const animationPath = ecodesafios[ecodesafio][esPositivo ? 'positivo' : 'negativo'];
-
-        // Crear contenedor para la animación dentro de la fila
-        const animationContainer = document.createElement('div');
-        animationContainer.classList.add('animation-container');
-        result.appendChild(animationContainer);
-
-        // Cargar la animación correspondiente
-        loadAnimation(animationContainer, animationPath);
-    });
-});
 
 
 const displayDetails = () => {
